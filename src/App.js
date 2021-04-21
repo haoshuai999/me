@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import SimpleNav from "./components/Nav";
 import Article from "./components/Article";
+import Slide from "./components/Slide";
+import SimpleCard from "./components/Card"
 
 import christmas from "./images/christmas.jpg"
 
@@ -8,6 +10,8 @@ import './App.css';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
+import Tabs from 'react-bootstrap/Tabs';
+import Tab from 'react-bootstrap/Tab';
 import Button from 'react-bootstrap/Button';
 import Image from 'react-bootstrap/Image';
 
@@ -29,11 +33,71 @@ function App() {
           <Button variant="primary">Portfolios</Button>{' '}
         </Col>
       </Row>
-      <Row>
-        <Col>
-          <Article />
-        </Col>
-      </Row>
+      <Tabs className="justify-content-center" defaultActiveKey="Interactives" id="uncontrolled-tab-example">
+        <Tab eventKey="Interactives" title="Interactives">
+          <Row className="p-2">
+            <Col>
+              <Article />
+            </Col>
+          </Row>
+          <Row className="p-2">
+            <Col>
+              <Article />
+            </Col>
+          </Row>
+          <Row className="p-2">
+            <Col>
+              <Article />
+            </Col>
+          </Row>
+          <Row className="p-2">
+            <Col>
+              <Article />
+            </Col>
+          </Row>
+        </Tab>
+        <Tab eventKey="Charts" title="Charts">
+          <Row className="p-2">
+            <Col>
+              <Slide />
+            </Col>
+          </Row>
+          <Row className="p-2">
+            <Col>
+              <SimpleCard />
+            </Col>
+            <Col>
+              <SimpleCard />
+            </Col>
+          </Row>
+          <Row className="p-2">
+            <Col>
+              <SimpleCard />
+            </Col>
+            <Col>
+              <SimpleCard />
+            </Col>
+          </Row>
+        </Tab>
+        <Tab eventKey="Articles" title="Articles">
+          <Row className="p-2">
+            <Col>
+              <SimpleCard />
+            </Col>
+            <Col>
+              <SimpleCard />
+            </Col>
+          </Row>
+          <Row className="p-2">
+            <Col>
+              <SimpleCard />
+            </Col>
+            <Col>
+              <SimpleCard />
+            </Col>
+          </Row>
+        </Tab>
+      </Tabs>
     </Container>
   );
 }
