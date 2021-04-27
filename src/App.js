@@ -2,7 +2,8 @@ import React, { useRef } from 'react';
 import SimpleNav from "./components/Nav";
 import Article from "./components/Article";
 import Slide from "./components/Slide";
-import SimpleCard from "./components/Card"
+import SimpleCard from "./components/Card";
+//import Returns from "./components/Returns";
 
 import christmas from "./images/christmas.jpg"
 
@@ -50,7 +51,7 @@ function App() {
         <Tab eventKey="Interactives" title="Interactives">
           <Row className="p-2">
             <Col>
-              <Article />
+              <Article/>
             </Col>
           </Row>
           <Row className="p-2">

@@ -13,15 +13,18 @@ export default function SimpleNav() {
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
             <Navbar.Collapse id="basic-navbar-nav">
                 <Nav className="mr-auto">
-                <Nav.Link href="#home">Home</Nav.Link>
-                <Nav.Link href="#link">Link</Nav.Link>
-                <NavDropdown title="Dropdown" id="basic-nav-dropdown">
+                <Nav.Link href="#home">Resume</Nav.Link>
+                <Nav.Link href="https://observablehq.com/@haoshuai999/why-i-choose-data-journalism">About</Nav.Link>
+                <Nav.Link href="https://observablehq.com/@shuaihaofzny">Observable</Nav.Link>
+                <Nav.Link href="https://github.com/haoshuai999">GitHub</Nav.Link>
+                <Nav.Link href="mailto: shuaihao@outlook.com">Contact</Nav.Link>
+                {/* <NavDropdown title="Dropdown" id="basic-nav-dropdown">
                     <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
                     <NavDropdown.Item href="#action/3.2">Another action</NavDropdown.Item>
                     <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
                     <NavDropdown.Divider />
                     <NavDropdown.Item href="#action/3.4">Separated link</NavDropdown.Item>
-                </NavDropdown>
+                </NavDropdown> */}
                 </Nav>
                 <Form inline>
                 <FormControl type="text" placeholder="Search" className="mr-sm-2" />

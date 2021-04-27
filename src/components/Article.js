@@ -1,15 +1,20 @@
 import React, { useState } from 'react';
+import Returns from "./Returns";
+import HeatmapExample from "./Heatmap";
 
 import christmas from '../images/christmas.jpg'
 
 import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
 
-export default function SimpleNav() {
+export default function SimpleNav(props) {
     return (
         <Card className="text-center">
         <Card.Header>Featured</Card.Header>
         <Card.Img variant="top" src={christmas} alt="card-image" />
+        {/* {props.template} */}
+        <HeatmapExample />
+        {/* <Returns /> */}
         <Card.Body>
             <Card.Title>Special title treatment</Card.Title>
             <Card.Text>
