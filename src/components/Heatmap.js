@@ -1,17 +1,28 @@
-import React, {useRef, useEffect} from "react";
+import React, {useRef, useEffect, useState} from "react";
 import {Runtime, Inspector} from "@observablehq/runtime";
 import notebook from "@shuaihaofzny/heatmap-example";
 
-function HeatmapExample() {
+function HeatmapExample({width}) {
   const chartRef = useRef();
+  const [module, setModule] = useState();
 
   useEffect(() => {
     const runtime = new Runtime();
-    runtime.module(notebook, name => {
+    const main = runtime.module(notebook, name => {
       if (name === "chart") return new Inspector(chartRef.current);
     });
-    return () => runtime.dispose();
+    setModule(main);
+    return () => {
+      setModule(undefined);
+      runtime.dispose()
+    };
   }, []);
+
+  useEffect(() => {
+    if (module !== undefined) {
+      module.redefine("width", width);
+    }
+  }, [width, module]);
 
   return (
     <>

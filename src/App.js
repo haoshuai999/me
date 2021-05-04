@@ -1,9 +1,10 @@
-import React, { useRef } from 'react';
+import React, { useRef, useState, useEffect } from 'react';
 import SimpleNav from "./components/Nav";
 import Article from "./components/Article";
 import Slide from "./components/Slide";
 import SimpleCard from "./components/Card";
-//import Returns from "./components/Returns";
+import Returns from "./components/Returns";
+import HeatmapExample from "./components/Heatmap";
 
 import christmas from "./images/christmas.jpg"
 
@@ -16,8 +17,39 @@ import Tab from 'react-bootstrap/Tab';
 import Button from 'react-bootstrap/Button';
 import Image from 'react-bootstrap/Image';
 
+const useContainerDimensions = myRef => {
+  const getDimensions = () => ({
+    width: myRef.current.offsetWidth - 60,
+    height: myRef.current.offsetHeight
+  })
+
+  const [dimensions, setDimensions] = useState({ width: 0, height: 0 })
+
+  useEffect(() => {
+    const handleResize = () => {
+      setDimensions(getDimensions())
+    }
+
+    if (myRef.current) {
+      setDimensions(getDimensions())
+    }
+
+    window.addEventListener("resize", handleResize)
+
+    return () => {
+      window.removeEventListener("resize", handleResize)
+    }
+  }, [myRef])
+
+  return dimensions;
+};
+
 function App() {
   const ref = useRef(null);
+  const componentRef = useRef();
+  const { width, height } = useContainerDimensions(componentRef);
+  console.log(width);
+  console.log(height);
 
   const handleClick = () => {
     console.log(ref.current);
@@ -50,13 +82,13 @@ function App() {
       <Tabs className="justify-content-center" defaultActiveKey="Interactives" id="uncontrolled-tab-example">
         <Tab eventKey="Interactives" title="Interactives">
           <Row className="p-2">
-            <Col>
-              <Article/>
+            <Col ref={componentRef}>
+              <Article chart= {<HeatmapExample width = {width}/>}/>
             </Col>
           </Row>
           <Row className="p-2">
             <Col>
-              <Article />
+              <Article chart= {<Returns width = {width}/>}/>
             </Col>
           </Row>
           <Row className="p-2">
