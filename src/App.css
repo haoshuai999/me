@@ -6,3 +6,15 @@
     margin-top: auto;
     margin-bottom: auto;
 }
+
+.footer {
+    color: white;
+    background-color: #343a40;
+}
+
+.sticky {
+    background-color: white;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}

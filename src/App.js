@@ -79,7 +79,7 @@ function App() {
         </Col>
       </Row>
       <div ref={ref}></div>
-      <Tabs className="justify-content-center" defaultActiveKey="Interactives" id="uncontrolled-tab-example">
+      <Tabs className="justify-content-center sticky" defaultActiveKey="Interactives" id="uncontrolled-tab-example">
         <Tab eventKey="Interactives" title="Interactives">
           <Row className="p-2">
             <Col ref={componentRef}>
@@ -144,6 +144,15 @@ function App() {
           </Row>
         </Tab>
       </Tabs>
+      <Row className="m-2 p-3 text-center footer">
+        <Col>
+          <footer>
+            <p>Designed using React and Bootstrap</p>
+            <p>Email: <a href="mailto:shuai_hao@outlook.com">shuai_hao@outlook.com</a></p>
+            <p>All Content © 2021 Shuai Hao</p>
+          </footer>
+        </Col>
+      </Row>
     </Container>
   );
 }
