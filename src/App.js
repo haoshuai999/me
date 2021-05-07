@@ -6,7 +6,10 @@ import SimpleCard from "./components/Card";
 import Returns from "./components/Returns";
 import HeatmapExample from "./components/Heatmap";
 
-import christmas from "./images/christmas.jpg"
+import christmas from "./images/christmas.jpg";
+import bullbear from "./images/Bull_bear.jpg";
+import heatmap from "./images/BTC_heatmap.jpg";
+import election from "./images/Election.jpg";
 
 import './App.css';
 import Container from 'react-bootstrap/Container';
@@ -48,8 +51,8 @@ function App() {
   const ref = useRef(null);
   const componentRef = useRef();
   const { width, height } = useContainerDimensions(componentRef);
-  console.log(width);
-  console.log(height);
+  
+  const slides = [election, bullbear, heatmap];
 
   const handleClick = () => {
     console.log(ref.current);
@@ -105,7 +108,7 @@ function App() {
         <Tab eventKey="Charts" title="Charts">
           <Row className="p-2">
             <Col>
-              <Slide />
+              <Slide topslides={slides}/>
             </Col>
           </Row>
           <Row className="p-2">

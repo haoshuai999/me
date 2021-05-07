@@ -1,16 +1,14 @@
 import React, { useState } from 'react';
 
-import christmas from '../images/christmas.jpg'
-
 import Carousel from 'react-bootstrap/Carousel';
 
-export default function Slide() {
+export default function Slide(props) {
     return (
         <Carousel fade>
         <Carousel.Item>
             <img
             className="d-block w-100"
-            src={christmas}
+            src={props.topslides[0]}
             alt="First slide"
             />
             <Carousel.Caption>
@@ -21,7 +19,7 @@ export default function Slide() {
         <Carousel.Item>
             <img
             className="d-block w-100"
-            src={christmas}
+            src={props.topslides[1]}
             alt="Second slide"
             />
 
@@ -33,7 +31,7 @@ export default function Slide() {
         <Carousel.Item>
             <img
             className="d-block w-100"
-            src={christmas}
+            src={props.topslides[2]}
             alt="Third slide"
             />
 
