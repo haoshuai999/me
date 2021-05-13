@@ -2,16 +2,13 @@ import React, { useState } from 'react';
 //import Returns from "./Returns";
 //import HeatmapExample from "./Heatmap";
 
-//import christmas from '../images/christmas.jpg'
-
 import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
 
-export default function SimpleNav(props) {
+export default function Article(props) {
     return (
         <Card>
         <Card.Header>Featured</Card.Header>
-        {/* <Card.Img variant="top" src={christmas} alt="card-image" /> */}
         <Card.Body>
             { props.chart }
             <Card.Title>Special title treatment</Card.Title>

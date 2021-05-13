@@ -47,15 +47,28 @@ const useContainerDimensions = myRef => {
   return dimensions;
 };
 
-function App() {
+function App(props) {
   const ref = useRef(null);
   const componentRef = useRef();
   const { width, height } = useContainerDimensions(componentRef);
   
   const slides = [election, bullbear, heatmap];
 
+  const ArticleList = props.articles.map(article => (
+    <Col className="col-md-6 p-2">
+      <SimpleCard 
+        id = {article.id}
+        image = {article.image}
+        title = {article.title}
+        date = {article.date}
+        description = {article.description}
+        link = {article.link}
+      />
+    </Col>
+    )
+  );
+
   const handleClick = () => {
-    console.log(ref.current);
     if (ref.current) {
       ref.current.scrollIntoView({
         behavior: 'smooth',
@@ -130,20 +143,7 @@ function App() {
         </Tab>
         <Tab eventKey="Articles" title="Articles">
           <Row className="p-2">
-            <Col>
-              <SimpleCard />
-            </Col>
-            <Col>
-              <SimpleCard />
-            </Col>
-          </Row>
-          <Row className="p-2">
-            <Col>
-              <SimpleCard />
-            </Col>
-            <Col>
-              <SimpleCard />
-            </Col>
+            {ArticleList}
           </Row>
         </Tab>
       </Tabs>

@@ -6,6 +6,8 @@ import NavDropdown from 'react-bootstrap/NavDropdown';
 import FormControl from 'react-bootstrap/FormControl';
 import Button from 'react-bootstrap/Button';
 
+import resume from "../static/Resume of Shuai Hao.pdf";
+
 export default function SimpleNav() {
     return (
         <Navbar bg="dark" variant="dark" expand="lg">
@@ -13,7 +15,7 @@ export default function SimpleNav() {
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
             <Navbar.Collapse id="basic-navbar-nav">
                 <Nav className="mr-auto">
-                <Nav.Link href="#home">Resume</Nav.Link>
+                <Nav.Link href={resume}>Resume</Nav.Link>
                 <Nav.Link href="https://observablehq.com/@haoshuai999/why-i-choose-data-journalism">About</Nav.Link>
                 <Nav.Link href="https://observablehq.com/@shuaihaofzny">Observable</Nav.Link>
                 <Nav.Link href="https://github.com/haoshuai999">GitHub</Nav.Link>

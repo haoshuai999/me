@@ -18,3 +18,8 @@
     top: 0;
     z-index: 100;
 }
+
+.carousel-control-next-icon, .carousel-control-prev-icon {
+    /* color: black !important; */
+    background-color: black !important;
+}
