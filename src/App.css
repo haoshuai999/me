@@ -20,6 +20,21 @@
 }
 
 .carousel-control-next-icon, .carousel-control-prev-icon {
-    /* color: black !important; */
     background-color: black !important;
+}
+
+.card-img-top {
+    display: block;
+    object-fit: contain;
+    max-height: 250px;
+}
+
+.carousel img{
+    display: block;
+    object-fit: contain;
+    max-height: 540px;
+}
+
+.chart {
+    text-align: center;
 }

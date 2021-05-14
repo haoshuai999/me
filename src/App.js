@@ -7,9 +7,6 @@ import Returns from "./components/Returns";
 import HeatmapExample from "./components/Heatmap";
 
 import christmas from "./images/christmas.jpg";
-import bullbear from "./images/Bull_bear.jpg";
-import heatmap from "./images/BTC_heatmap.jpg";
-import election from "./images/Election.jpg";
 
 import './App.css';
 import Container from 'react-bootstrap/Container';
@@ -22,7 +19,7 @@ import Image from 'react-bootstrap/Image';
 
 const useContainerDimensions = myRef => {
   const getDimensions = () => ({
-    width: myRef.current.offsetWidth - 60,
+    width: (myRef.current.offsetWidth) < 1000 ? myRef.current.offsetWidth : 1000,
     height: myRef.current.offsetHeight
   })
 
@@ -51,8 +48,6 @@ function App(props) {
   const ref = useRef(null);
   const componentRef = useRef();
   const { width, height } = useContainerDimensions(componentRef);
-  
-  const slides = [election, bullbear, heatmap];
 
   const ArticleList = props.articles.map(article => (
     <Col className="col-md-6 p-2">
@@ -121,7 +116,7 @@ function App(props) {
         <Tab eventKey="Charts" title="Charts">
           <Row className="p-2">
             <Col>
-              <Slide topslides={slides}/>
+              <Slide data={props.slides}/>
             </Col>
           </Row>
           <Row className="p-2">

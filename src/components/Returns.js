@@ -36,7 +36,7 @@ function Returns({ width }) {
       <div ref={viewofStartdateRef} />
       <div ref={viewofEnddateRef} />
       <div ref={viewofChRef} />
-      <div ref={chartRef} />
+      <div ref={chartRef} className="chart"/>
       <p>Credit: <a href="https://observablehq.com/d/99803321128e165f">Crypto Asset Returns - CD by CoinDesk</a></p>
     </>
   );
