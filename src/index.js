@@ -5,9 +5,6 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-// import poland from './images/Poland-abortion-cost.jpeg';
-// import recognizer from './images/Image-Recognizer.jpeg';
-
 const ARTICLE = [
   { id: "article-0", image: "Image-Recognizer.jpeg", title: "Use JavaScipt for Deep Learning Classification Model", date: "Nov. 19, 2019", description: "I built a simple deep learning image classifcation model in the browser to recognize the landmarks of Columbia University.", link: "https://haoshuai999.github.io/image-classifier/"},
   { id: "article-1", image: "Poland-abortion-cost.jpeg", title: "Polish women turn to arthritis medication for abortions", date: "Dec. 13 2018", description: "Opening a pack of medicine for joint-pain, Julia Zareba, a student from northeast Poland, took 12 pills out and swallowed them all at once...", link: "https://web.archive.org/web/20190514054352/http://jerichoonline.com/2019/01/16/polish-women-turn-to-arthritis-medication-for-abortions/"},
@@ -16,10 +13,12 @@ const ARTICLE = [
 ]
 
 const CHART = [
-  { id: "chart-0", image: "Image-Recognizer.jpeg", title: "Use JavaScipt for Deep Learning Classification Model", date: "Nov. 19, 2019", description: "I built a simple deep learning image classifcation model in the browser to recognize the landmarks of Columbia University.", link: "https://haoshuai999.github.io/image-classifier/"},
-  { id: "chart-1", image: "Poland-abortion-cost.jpeg", title: "Polish women turn to arthritis medication for abortions", date: "Dec. 13 2018", description: "Opening a pack of medicine for joint-pain, Julia Zareba, a student from northeast Poland, took 12 pills out and swallowed them all at once...", link: "https://web.archive.org/web/20190514054352/http://jerichoonline.com/2019/01/16/polish-women-turn-to-arthritis-medication-for-abortions/"},
-  { id: "chart-2", image: null, title: "The Second Biggest Rehabilitation Center in Philippines Faces Challenges", date: "Dec. 8, 2018", description: "On a normal workday, Christian Andres wore his uniform and employee’s card as usual and went out to attend a patient admission interview...", link: null},
-  { id: "chart-3", image: null, title: "Smart Chart: Tracking North Korea’s Missile Program", date: "Sept. 22, 2017", description: "North Korean missiletraveled 3,700 kilometers (2,300 miles), putting the U.S. Pacific territory of Guam within reach...", link: "https://www.caixinglobal.com/2017-09-22/smart-chart-tracking-north-koreas-missile-program-101147919.html"}
+  { id: "chart-0", image: "Figma.png", title: "Feed for Thought – News Product", date: "Mar. 14 2020", description: "I designed Feed for Thought, a technology news aggregation application prototype, using Figma and made a intro video using Protopie.", link: "https://www.youtube.com/watch?v=bZgdGAhI1vo&t=20s"},
+  { id: "chart-1", image: "Slavery.jpeg", title: "Slavery’s Explosive Growth, in Charts: How ’20 and odd’ Became Millions", date: "Aug. 28, 2019", description: "The largest project I worked on at USA TODAY Network is about the history of slavery in the US since 1619.", link: "https://www.usatoday.com/pages/interactives/1619-african-slavery-history-maps-routes-interactive-graphic/"},
+  { id: "chart-2", image: "weed.jpeg", title: "The Use of Marijuana During Pregnancy", date: "Aug. 28, 2019", description: "A map visualization showing the marijuana-related legislation in each state in the US.", link: "https://www.usatoday.com/pages/interactives/1619-african-slavery-history-maps-routes-interactive-graphic/"},
+  { id: "chart-3", image: "final-project.jpeg", title: "Evolution of Terrorism", date: "Sept. 26, 2019", description: "Terrorism has long been one of the biggest threats to safety and stability across the world. Different forms of terrorism exist, including state-sponsored, political and religious terrorism...", link: "https://haoshuai999.github.io"},
+  { id: "chart-4", image: "Sleep-Deprivation1.jpeg", title: "Sleep Deprivation", date: "Dec. 16, 2018", description: "The website shows Chinese young people's night life using the Javascript library skrollr.", link: "https://www.youtube.com/watch?v=qXACAU0BRAQ&feature=youtu.be"},
+  { id: "chart-5", image: "china-map.jpeg", title: "How Far Between the Chinese and Global National Parks? The length of a High-price Ticket", date: "Dec. 23, 2017", description: "The data journalism story was written by me in April 2017 and got the 13th place in 2017 Data Journalism Competition of China.", link: "http://haoshuai.000webhostapp.com/"}
 ]
 
 const SLIDE = [

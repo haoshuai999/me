@@ -63,6 +63,20 @@ function App(props) {
     )
   );
 
+  const ChartList = props.charts.map(chart => (
+    <Col className="col-md-6 p-2">
+      <SimpleCard 
+        id = {chart.id}
+        image = {chart.image}
+        title = {chart.title}
+        date = {chart.date}
+        description = {chart.description}
+        link = {chart.link}
+      />
+    </Col>
+    )
+  );
+
   const handleClick = () => {
     if (ref.current) {
       ref.current.scrollIntoView({
@@ -120,20 +134,7 @@ function App(props) {
             </Col>
           </Row>
           <Row className="p-2">
-            <Col>
-              <SimpleCard />
-            </Col>
-            <Col>
-              <SimpleCard />
-            </Col>
-          </Row>
-          <Row className="p-2">
-            <Col>
-              <SimpleCard />
-            </Col>
-            <Col>
-              <SimpleCard />
-            </Col>
+            {ChartList}
           </Row>
         </Tab>
         <Tab eventKey="Articles" title="Articles">
