@@ -94,7 +94,7 @@ function App(props) {
         </Col>
       </Row>
       <Row className="full-height">
-        <Col sm={4} className="pt-5 pb-5 my-auto">
+        <Col sm={4} className="pt-5 pb-5 pl-5 my-auto">
           <Image src={christmas} alt="profile" fluid />
         </Col>
         <Col sm={8} className="p-5 my-auto">
