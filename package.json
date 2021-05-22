@@ -3,6 +3,10 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "4cbd138614bf115f": "https://api.observablehq.com/d/4cbd138614bf115f.tgz?v=3",
+    "51fbdbc746a1de7e": "https://api.observablehq.com/d/51fbdbc746a1de7e.tgz?v=3",
+    "684a54bcf8262fbd": "https://api.observablehq.com/d/684a54bcf8262fbd.tgz?v=3",
+    "6a0e7e787418caa2": "https://api.observablehq.com/d/6a0e7e787418caa2.tgz?v=3",
     "99803321128e165f": "https://api.observablehq.com/d/99803321128e165f.tgz?v=3",
     "@observablehq/runtime": "4",
     "@shuaihaofzny/heatmap-example": "https://api.observablehq.com/@shuaihaofzny/heatmap-example.tgz?v=3",

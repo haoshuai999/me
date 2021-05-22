@@ -25,6 +25,8 @@ function Returns({ width }) {
     };
   }, []);
 
+  console.log(width);
+
   useEffect(() => {
     if (module !== undefined) {
       module.redefine("width", width);

@@ -4,7 +4,11 @@ import Article from "./components/Article";
 import Slide from "./components/Slide";
 import SimpleCard from "./components/Card";
 import Returns from "./components/Returns";
-import HeatmapExample from "./components/Heatmap";
+import Heatmap from "./components/Heatmap";
+import Cosmos from "./components/Cosmos";
+import Radial from "./components/Radial";
+import Tree from "./components/Tree";
+import Congress from "./components/Congress";
 
 import christmas from "./images/christmas.jpg";
 
@@ -49,6 +53,15 @@ function App(props) {
   const componentRef = useRef();
   const { width, height } = useContainerDimensions(componentRef);
 
+  const interactives = [
+    {id: "interactive-0", interactive: <Heatmap width = {width}/>},
+    {id: "interactive-1", interactive: <Returns width = {width}/>},
+    {id: "interactive-2", interactive: <Cosmos width = {width}/>},
+    {id: "interactive-3", interactive: <Radial width = {width}/>},
+    {id: "interactive-4", interactive: <Congress width = {width}/>},
+    {id: "interactive-5", interactive: <Tree width = {width}/>}
+  ]
+
   const ArticleList = props.articles.map(article => (
     <Col className="col-md-6 p-2">
       <SimpleCard 
@@ -74,6 +87,15 @@ function App(props) {
         link = {chart.link}
       />
     </Col>
+    )
+  );
+
+  const InteractiveList = interactives.map(interact => (
+    <Row className="p-2">
+      <Col ref={componentRef}>
+        <Article chart={interact.interactive}/>
+      </Col>
+    </Row>
     )
   );
 
@@ -106,26 +128,7 @@ function App(props) {
       <div ref={ref}></div>
       <Tabs className="justify-content-center sticky" defaultActiveKey="Interactives" id="uncontrolled-tab-example">
         <Tab eventKey="Interactives" title="Interactives">
-          <Row className="p-2">
-            <Col ref={componentRef}>
-              <Article chart= {<HeatmapExample width = {width}/>}/>
-            </Col>
-          </Row>
-          <Row className="p-2">
-            <Col>
-              <Article chart= {<Returns width = {width}/>}/>
-            </Col>
-          </Row>
-          <Row className="p-2">
-            <Col>
-              <Article />
-            </Col>
-          </Row>
-          <Row className="p-2">
-            <Col>
-              <Article />
-            </Col>
-          </Row>
+          {InteractiveList}
         </Tab>
         <Tab eventKey="Charts" title="Charts">
           <Row className="p-2">

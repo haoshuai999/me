@@ -2,6 +2,22 @@
 # yarn lockfile v1
 
 
+"4cbd138614bf115f@https://api.observablehq.com/d/4cbd138614bf115f.tgz?v=3":
+  version "585.0.0"
+  resolved "https://api.observablehq.com/d/4cbd138614bf115f.tgz?v=3#9bb9ee0cec123f9a0b17b4aaeb6fcae2c7510ea5"
+
+"51fbdbc746a1de7e@https://api.observablehq.com/d/51fbdbc746a1de7e.tgz?v=3":
+  version "322.0.0"
+  resolved "https://api.observablehq.com/d/51fbdbc746a1de7e.tgz?v=3#dd3ecef78e55dd506822af88d44bffba96bcad75"
+
+"684a54bcf8262fbd@https://api.observablehq.com/d/684a54bcf8262fbd.tgz?v=3":
+  version "361.0.0"
+  resolved "https://api.observablehq.com/d/684a54bcf8262fbd.tgz?v=3#9b46c02be1bbd5e473173c356bcde34a69396886"
+
+"6a0e7e787418caa2@https://api.observablehq.com/d/6a0e7e787418caa2.tgz?v=3":
+  version "238.0.0"
+  resolved "https://api.observablehq.com/d/6a0e7e787418caa2.tgz?v=3#bd4beda779616a07f3932f5884b37cc69aca8808"
+
 "99803321128e165f@https://api.observablehq.com/d/99803321128e165f.tgz?v=3":
   version "2396.0.0"
   resolved "https://api.observablehq.com/d/99803321128e165f.tgz?v=3#77f7d5b17d3b3f463ed1fdb37154d230dcd778c0"
