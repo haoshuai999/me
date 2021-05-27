@@ -54,12 +54,12 @@ function App(props) {
   const { width, height } = useContainerDimensions(componentRef);
 
   const interactives = [
-    {id: "interactive-0", interactive: <Heatmap width = {width}/>},
-    {id: "interactive-1", interactive: <Returns width = {width}/>},
-    {id: "interactive-2", interactive: <Cosmos width = {width}/>},
-    {id: "interactive-3", interactive: <Radial width = {width}/>},
-    {id: "interactive-4", interactive: <Congress width = {width}/>},
-    {id: "interactive-5", interactive: <Tree width = {width}/>}
+    {id: "interactive-0", interactive: <Returns width = {width}/>, title: "Crypto Returns Over Time", description: "Fetch the lastest crypto returns data using the notebook.", link: "https://observablehq.com/d/99803321128e165f", date: "Sept. 14 2020"},
+    {id: "interactive-1", interactive: <Cosmos width = {width}/>, title: "The Growth of Cosmos India", description: "Cosmos aims to be the internet of blockchain. Cosmos's token ATOM and its Indian branch grows fast in 2020.", link: "https://observablehq.com/d/51fbdbc746a1de7e", date: "Oct. 1 2020"},
+    {id: "interactive-2", interactive: <Heatmap width = {width}/>, title: "BTC Returns Heatmap", description: "Bitcoin performs better on US trading hours than Asian trading hours.", link: "https://observablehq.com/@shuaihaofzny/heatmap-example", date: "Sept. 30 2020"},
+    {id: "interactive-3", interactive: <Radial width = {width}/>, title: "Coinbase Growth", description: "Total assets on Coinbase increased nearly 150% in 2021Q1.", link: "https://observablehq.com/d/684a54bcf8262fbd", date: "Apr. 3 2021"},
+    {id: "interactive-4", interactive: <Congress width = {width}/>, title: "Blockchain and Congress", description: "Most lawmakers don't hold any opinion towards blockchain technology.", link: "https://observablehq.com/d/4cbd138614bf115f", date: "Jan. 7 2021"},
+    {id: "interactive-5", interactive: <Tree width = {width}/>, title: "Crypto Family Tree", description: "Many crypto assets are related to each other through forking.", link: "https://observablehq.com/d/6a0e7e787418caa2", date: "Mar. 21 2021"}
   ]
 
   const ArticleList = props.articles.map(article => (
@@ -93,7 +93,13 @@ function App(props) {
   const InteractiveList = interactives.map(interact => (
     <Row className="p-2">
       <Col ref={componentRef}>
-        <Article chart={interact.interactive}/>
+        <Article 
+          title={interact.title}
+          date={interact.date}
+          description={interact.description}
+          link={interact.link}
+          chart={interact.interactive}
+        />
       </Col>
     </Row>
     )

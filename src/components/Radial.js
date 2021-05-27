@@ -27,7 +27,7 @@ function Radial({width}) {
   return (
     <>
       <div ref={chartRef} className="chart"/>
-      <p>Credit: <a href="https://observablehq.com/d/684a54bcf8262fbd">Coinbase Radial Stacked Bar Chart by CoinDesk</a></p>
+      {/* <p>Credit: <a href="https://observablehq.com/d/684a54bcf8262fbd">Coinbase Radial Stacked Bar Chart by CoinDesk</a></p> */}
     </>
   );
 }

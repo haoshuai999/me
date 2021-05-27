@@ -27,11 +27,13 @@ function Congress({width}) {
       }
     }, [width, module]);
 
+    console.log(width);
+
   return (
     <>
       <div ref={viewofRRef} />
       <div ref={chartRef} className="chart"/>
-      <p>Credit: <a href="https://observablehq.com/d/4cbd138614bf115f">US Congress Chart by CoinDesk</a></p>
+      {/* <p>Credit: <a href="https://observablehq.com/d/4cbd138614bf115f">US Congress Chart by CoinDesk</a></p> */}
     </>
   );
 }

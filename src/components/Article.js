@@ -8,16 +8,16 @@ import Button from 'react-bootstrap/Button';
 export default function Article(props) {
     return (
         <Card>
-        <Card.Header>Featured</Card.Header>
+        <Card.Header>{props.date}</Card.Header>
         <Card.Body>
             { props.chart }
-            <Card.Title>Special title treatment</Card.Title>
+            <Card.Title>{ props.title }</Card.Title>
             <Card.Text>
-            With supporting text below as a natural lead-in to additional content.
+            { props.description }
             </Card.Text>
-            <Button variant="primary">Go somewhere</Button>
+            <Card.Link href={props.link}>View on Observable</Card.Link>
         </Card.Body>
-        <Card.Footer className="text-muted">2 days ago</Card.Footer>
+        {/* <Card.Footer className="text-muted">2 days ago</Card.Footer> */}
         </Card>
     )
 }

@@ -27,7 +27,7 @@ function Tree({width}) {
   return (
     <>
       <div ref={chartRef} className="chart"/>
-      <p>Credit: <a href="https://observablehq.com/d/6a0e7e787418caa2">Crypto Family Tree by CoinDesk</a></p>
+      {/* <p>Credit: <a href="https://observablehq.com/d/6a0e7e787418caa2">Crypto Family Tree by CoinDesk</a></p> */}
     </>
   );
 }

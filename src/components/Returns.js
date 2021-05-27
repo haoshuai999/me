@@ -25,13 +25,12 @@ function Returns({ width }) {
     };
   }, []);
 
-  console.log(width);
-
   useEffect(() => {
     if (module !== undefined) {
       module.redefine("width", width);
     }
   }, [width, module]);
+
 
   return (
     <>
@@ -39,7 +38,7 @@ function Returns({ width }) {
       <div ref={viewofEnddateRef} />
       <div ref={viewofChRef} />
       <div ref={chartRef} className="chart"/>
-      <p>Credit: <a href="https://observablehq.com/d/99803321128e165f">Crypto Asset Returns - CD by CoinDesk</a></p>
+      {/* <p>Credit: <a href="https://observablehq.com/d/99803321128e165f">Crypto Asset Returns - CD by CoinDesk</a></p> */}
     </>
   );
 }

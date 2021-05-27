@@ -27,7 +27,7 @@ function HeatmapExample({width}) {
   return (
     <>
       <div ref={chartRef} className="chart"/>
-      <p>Credit: <a href="https://observablehq.com/@shuaihaofzny/heatmap-example">Heatmap Example by Shuai Hao</a></p>
+      {/* <p>Credit: <a href="https://observablehq.com/@shuaihaofzny/heatmap-example">Heatmap Example by Shuai Hao</a></p> */}
     </>
   );
 }

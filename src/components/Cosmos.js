@@ -27,7 +27,7 @@ function Cosmos({width}) {
   return (
     <>
       <div ref={chartRef} className="chart"/>
-      <p>Credit: <a href="https://observablehq.com/d/51fbdbc746a1de7e">Cosmos India Timeline by CoinDesk</a></p>
+      {/* <p>Credit: <a href="https://observablehq.com/d/51fbdbc746a1de7e">Cosmos India Timeline by CoinDesk</a></p> */}
     </>
   );
 }
