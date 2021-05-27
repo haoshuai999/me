@@ -1,19 +1,21 @@
 {
+  "homepage": "http://haoshuai999.github.io/me",
   "name": "shuai-website",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "4cbd138614bf115f": "https://api.observablehq.com/d/4cbd138614bf115f.tgz?v=3",
-    "51fbdbc746a1de7e": "https://api.observablehq.com/d/51fbdbc746a1de7e.tgz?v=3",
-    "684a54bcf8262fbd": "https://api.observablehq.com/d/684a54bcf8262fbd.tgz?v=3",
-    "6a0e7e787418caa2": "https://api.observablehq.com/d/6a0e7e787418caa2.tgz?v=3",
-    "99803321128e165f": "https://api.observablehq.com/d/99803321128e165f.tgz?v=3",
     "@observablehq/runtime": "4",
     "@shuaihaofzny/heatmap-example": "https://api.observablehq.com/@shuaihaofzny/heatmap-example.tgz?v=3",
     "@testing-library/jest-dom": "^5.11.10",
     "@testing-library/react": "^11.2.6",
     "@testing-library/user-event": "^12.8.3",
+    "4cbd138614bf115f": "https://api.observablehq.com/d/4cbd138614bf115f.tgz?v=3",
+    "51fbdbc746a1de7e": "https://api.observablehq.com/d/51fbdbc746a1de7e.tgz?v=3",
+    "684a54bcf8262fbd": "https://api.observablehq.com/d/684a54bcf8262fbd.tgz?v=3",
+    "6a0e7e787418caa2": "https://api.observablehq.com/d/6a0e7e787418caa2.tgz?v=3",
+    "99803321128e165f": "https://api.observablehq.com/d/99803321128e165f.tgz?v=3",
     "bootstrap": "^4.6.0",
+    "jsonfile": "^6.1.0",
     "react": "^17.0.2",
     "react-bootstrap": "^1.5.2",
     "react-dom": "^17.0.2",
@@ -21,6 +23,8 @@
     "web-vitals": "^1.1.1"
   },
   "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
@@ -43,5 +47,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "gh-pages": "^3.2.0"
   }
 }
