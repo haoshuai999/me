@@ -1,0 +1,14 @@
+{
+  "name": "@shuaihaofzny/heatmap-example",
+  "main": "18bdbc4a74bdf504@291.js",
+  "version": "291.0.0",
+  "homepage": "https://observablehq.com/@shuaihaofzny/heatmap-example",
+  "author": {
+    "name": "Shuai Hao",
+    "url": "https://observablehq.com/@shuaihaofzny"
+  },
+  "type": "module",
+  "peerDependencies": {
+    "@observablehq/runtime": "4"
+  }
+}

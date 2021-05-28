@@ -1,6 +1,6 @@
 import React, {useRef, useEffect, useState} from "react";
 import {Runtime, Inspector} from "@observablehq/runtime";
-import notebook from "51fbdbc746a1de7e";
+import notebook from "../51fbdbc746a1de7e";
 
 function Cosmos({width}) {
     const chartRef = useRef();

@@ -1,6 +1,6 @@
 import React, {useRef, useEffect, useState} from "react";
 import {Runtime, Inspector} from "@observablehq/runtime";
-import notebook from "4cbd138614bf115f";
+import notebook from "../4cbd138614bf115f";
 
 function Congress({width}) {
     const viewofRRef = useRef();

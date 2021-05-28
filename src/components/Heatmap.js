@@ -1,6 +1,6 @@
 import React, {useRef, useEffect, useState} from "react";
 import {Runtime, Inspector} from "@observablehq/runtime";
-import notebook from "@shuaihaofzny/heatmap-example";
+import notebook from "../@shuaihaofzny/heatmap-example";
 
 function HeatmapExample({width}) {
   const chartRef = useRef();
