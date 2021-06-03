@@ -16,7 +16,7 @@ export default function SimpleNav() {
             <Navbar.Collapse id="basic-navbar-nav">
                 <Nav className="mr-auto">
                 <Nav.Link href={resume}>Resume</Nav.Link>
-                <Nav.Link href="https://observablehq.com/@haoshuai999/why-i-choose-data-journalism">About</Nav.Link>
+                <Nav.Link href="https://observablehq.com/@haoshuai999/why-i-choose-data-journalism">My Story</Nav.Link>
                 <Nav.Link href="https://observablehq.com/@shuaihaofzny">Observable</Nav.Link>
                 <Nav.Link href="https://github.com/haoshuai999">GitHub</Nav.Link>
                 <Nav.Link href="mailto: shuaihao@outlook.com">Contact</Nav.Link>

@@ -127,7 +127,8 @@ function App(props) {
         </Col>
         <Col sm={8} className="p-5 my-auto">
           <h1>Hello, world! I'm Shuai Hao.</h1>
-          <p>I am a journalist, programmer and designer. I graduated from Columbia University's dual degree program in Journalism and Computer Science</p>
+          <p>I am a journalist, programmer and designer based in NYC. I graduated from Columbia University's dual degree program in Journalism and Computer Science.</p>
+          <p>Love beautiful interactive charts. <br />Love scrollable webpages. <br />Love smooth animations.</p>
           <Button variant="primary" onClick={handleClick}>Portfolios</Button>{' '}
         </Col>
       </Row>
