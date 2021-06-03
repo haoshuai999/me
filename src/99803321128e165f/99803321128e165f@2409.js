@@ -216,16 +216,18 @@ checkbox({
     });
   }
 
-  svg
-    .append("svg:image")
-    .attr("x", 0)
-    .attr("y", height - 60)
-    .attr("width", 200)
-    .attr("height", 50)
-    .attr(
-      "xlink:href",
-      "https://gist.githubusercontent.com/coindesk-research/a301747be23ca66a7ca79f01cf6a81bd/raw/275080d0a6d73aec9d54a0bb63341f82d4b699fe/Coindesk%25C2%25AE_Logo_RGB.png"
-    );
+  if (width > 768) {
+    svg
+      .append("svg:image")
+      .attr("x", 0)
+      .attr("y", height - 60)
+      .attr("width", 200)
+      .attr("height", 50)
+      .attr(
+        "xlink:href",
+        "https://gist.githubusercontent.com/coindesk-research/a301747be23ca66a7ca79f01cf6a81bd/raw/275080d0a6d73aec9d54a0bb63341f82d4b699fe/Coindesk%25C2%25AE_Logo_RGB.png"
+      );
+  }
 
   svg
     .append("g")
@@ -279,7 +281,7 @@ checkbox({
     .attr("x", width / 2)
     .attr("y", margin.top - 23)
     .attr("text-anchor", "middle")
-    .style("font-size", 26)
+    .style("font-size", width > 768 ? 26 :18)
     .style("font-family", "Acumin Pro Bold")
     .style("font-weight", "bold")
     .text(title);
@@ -298,7 +300,7 @@ checkbox({
     flag = 1;
     svg
       .append("text")
-      .attr("x", 175 + 275 * num_of_macro)
+      .attr("x", width > 768 ? 175 + 275 * num_of_macro : 275 * num_of_macro)
       .attr("y", height - 25 - 10 * flag)
       .attr("text-anchor", "left")
       .style("font-size", 13)
@@ -312,7 +314,7 @@ checkbox({
     flag = 1;
     svg
       .append("text")
-      .attr("x", 175 + 275 * num_of_macro)
+      .attr("x", width > 768 ? 175 + 275 * num_of_macro : 275 * num_of_macro)
       .attr("y", height - 25 - 10 * flag)
       .attr("text-anchor", "left")
       .style("font-size", 13)
@@ -326,7 +328,7 @@ checkbox({
     flag = 1;
     svg
       .append("text")
-      .attr("x", 175 + 275 * num_of_macro)
+      .attr("x", width > 768 ? 175 + 275 * num_of_macro : 275 * num_of_macro)
       .attr("y", height - 25 - 10 * flag)
       .attr("text-anchor", "left")
       .style("font-size", 13)
@@ -338,7 +340,7 @@ checkbox({
 
   svg
     .append("text")
-    .attr("x", 175)
+    .attr("x", width > 768 ? 175 : 0)
     .attr("y", height - 25 + 10 * flag)
     .attr("text-anchor", "start")
     .style("font-size", 13)
@@ -356,7 +358,7 @@ checkbox({
   ) {
     svg
       .append("text")
-      .attr("x", 335)
+      .attr("x", width > 768 ? 175 : 160)
       .attr("y", height - 25 + 10 * flag)
       .attr("text-anchor", "start")
       .style("font-size", 13)
@@ -455,7 +457,7 @@ d3
 d3.scaleLinear()
     .range([height - margin.bottom, margin.top])
 )});
-  main.variable(observer("xAxis")).define("xAxis", ["height","margin","d3","x","addWebFont"], function(height,margin,d3,x,addWebFont){return(
+  main.variable(observer("xAxis")).define("xAxis", ["width","height","margin","d3","x","addWebFont"], function(width,height,margin,d3,x,addWebFont){return(
 g =>
   g
     .attr("transform", `translate(0,${height - margin.bottom})`)
@@ -464,7 +466,7 @@ g =>
     .call(
       d3
         .axisBottom(x)
-        .ticks(4)
+        .ticks(width/ 200)
         .tickSizeOuter(0)
         //.tickFormat(d3.utcFormat('%b. %_d, %Y')) // AP style dates
         .tickFormat(d3.utcFormat('%m/%d/%y'))

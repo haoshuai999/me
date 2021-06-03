@@ -72,7 +72,7 @@ Credit: Avi Felman's [tweet](https://twitter.com/AviFelman/status/13110890408887
 }
 );
   main.variable(observer("margin")).define("margin", function(){return(
-{ top: 40, right: 50, bottom: 70, left: 100 }
+{ top: 40, right: 70, bottom: 70, left: 70 }
 )});
   main.variable(observer("w")).define("w", ["width","margin"], function(width,margin){return(
 width - margin.left - margin.right

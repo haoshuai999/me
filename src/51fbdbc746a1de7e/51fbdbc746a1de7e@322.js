@@ -76,16 +76,39 @@ md`# Cosmos India Timeline`
     .attr("stroke-linejoin", "round")
     .attr("stroke-linecap", "round")
     .attr("d", line);
+  
+  if (width > 768) {
+    svg
+      .append("text")
+      .attr("x", width / 2)
+      .attr("y", margin.top - 20)
+      .attr("text-anchor", "middle")
+      .style("font-size", 26)
+      .style("font-family", "Acumin Pro")
+      .style("font-weight", "bold")
+      .text("Cosmos (ATOM) Price Growth and Events Held by Cosmos in India");
+  } else {
+    svg
+      .append("text")
+      .attr("x", width / 2)
+      .attr("y", margin.top - 30)
+      .attr("text-anchor", "middle")
+      .style("font-size", 18)
+      .style("font-family", "Acumin Pro")
+      .style("font-weight", "bold")
+      .text("Cosmos (ATOM) Price Growth and Events");
+    
+    svg
+      .append("text")
+      .attr("x", width / 2)
+      .attr("y", margin.top - 10)
+      .attr("text-anchor", "middle")
+      .style("font-size", 18)
+      .style("font-family", "Acumin Pro")
+      .style("font-weight", "bold")
+      .text("Held by Cosmos in India");
+  }
 
-  svg
-    .append("text")
-    .attr("x", width / 2)
-    .attr("y", margin.top - 20)
-    .attr("text-anchor", "middle")
-    .style("font-size", 26)
-    .style("font-family", "Acumin Pro")
-    .style("font-weight", "bold")
-    .text("Cosmos (ATOM) Price Growth and Events Held by Cosmos in India");
 
   svg
     .selectAll("mylines")
@@ -123,11 +146,18 @@ md`# Cosmos India Timeline`
     .attr("text-anchor", "left")
     .style("alignment-baseline", "middle")
     .style("font-family", "Acumin Pro");
-
-  svg
-    .append("g")
-    .attr("transform", "translate(300, 60)")
-    .call(legend);
+  
+  if (width > 768) {
+    svg
+      .append("g")
+      .attr("transform", "translate(300, 60)")
+      .call(legend);
+  } else {
+    svg
+      .append("g")
+      .attr("transform", "translate(100, 150)")
+      .call(legend);
+  }
 
   return svg.node();
 }

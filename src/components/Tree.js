@@ -2,9 +2,10 @@ import React, {useRef, useEffect, useState} from "react";
 import {Runtime, Inspector} from "@observablehq/runtime";
 import notebook from "../6a0e7e787418caa2";
 
-function Tree({width}) {
+function Tree() {
     const chartRef = useRef();
     const [module, setModule] = useState();
+    const width = 1015;
   
     useEffect(() => {
       const runtime = new Runtime();

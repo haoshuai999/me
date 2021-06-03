@@ -50,7 +50,7 @@ radio({
   svg
     .append("g")
     .attr("font-family", "Acumin Pro")
-    .attr("font-size", 20)
+    .attr("font-size", width > 768 ? 20 : 10)
     .attr("text-anchor", "middle")
     .selectAll("text")
     .data(arcs)
@@ -76,10 +76,10 @@ radio({
 
   svg
     .append("text")
-    .attr("x", 30)
+    .attr("x", margin.left)
     .attr("y", margin.top - 110)
     .attr("text-anchor", "middle")
-    .style("font-size", 26)
+    .style("font-size", width > 768 ? 26 : 18)
     .style("font-family", "Acumin Pro")
     .style("font-weight", "bold")
     .text(`Blockchain Attitude in the ${r}`);
@@ -96,7 +96,7 @@ radio({
     .data(data)
     .enter()
     .append("rect")
-    .attr("x", width * 0.75)
+    .attr("x", width * 0.7)
     .attr("y", (d, i) => labelHeight * i * 1.8 + height * 0.8)
     .attr("width", labelHeight)
     .attr("height", labelHeight)
@@ -110,7 +110,7 @@ radio({
     .enter()
     .append("text")
     .text(d => `${d.Stance}: ${d[r]}`)
-    .attr("x", labelHeight * 1.2 + width * 0.75)
+    .attr("x", labelHeight * 1.2 + width * 0.7)
     .attr(
       "y",
       (d, i) => labelHeight * i * 1.8 + labelHeight / 1.1 + height * 0.8

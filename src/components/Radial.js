@@ -2,8 +2,9 @@ import React, {useRef, useEffect, useState} from "react";
 import {Runtime, Inspector} from "@observablehq/runtime";
 import notebook from "../684a54bcf8262fbd";
 
-function Radial({width}) {
+function Radial() {
     const chartRef = useRef();
+    const width = 975;
     const [module, setModule] = useState();
   
     useEffect(() => {
