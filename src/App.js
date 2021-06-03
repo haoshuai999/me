@@ -9,8 +9,7 @@ import Cosmos from "./components/Cosmos";
 import Radial from "./components/Radial";
 import Tree from "./components/Tree";
 import Congress from "./components/Congress";
-
-import christmas from "./images/christmas.jpg";
+import Intro from "./components/Intro";
 
 import './App.css';
 import Container from 'react-bootstrap/Container';
@@ -18,8 +17,6 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Tabs from 'react-bootstrap/Tabs';
 import Tab from 'react-bootstrap/Tab';
-import Button from 'react-bootstrap/Button';
-import Image from 'react-bootstrap/Image';
 
 const useContainerDimensions = myRef => {
   const getDimensions = () => ({
@@ -63,7 +60,7 @@ function App(props) {
   ]
 
   const ArticleList = props.articles.map(article => (
-    <Col className="col-md-6 p-2">
+    <Col md={6} sm={12} className="p-2">
       <SimpleCard 
         id = {article.id}
         image = {article.image}
@@ -77,7 +74,7 @@ function App(props) {
   );
 
   const ChartList = props.charts.map(chart => (
-    <Col className="col-md-6 p-2">
+    <Col md={6} sm={12} className="p-2">
       <SimpleCard 
         id = {chart.id}
         image = {chart.image}
@@ -115,23 +112,13 @@ function App(props) {
   }
 
   return (
-    <Container fluid>
+    <Container fluid="md">
       <Row>
         <Col>
           <SimpleNav />
         </Col>
       </Row>
-      <Row className="full-height">
-        <Col sm={4} className="pt-5 pb-5 pl-5 my-auto">
-          <Image src={christmas} alt="profile" fluid />
-        </Col>
-        <Col sm={8} className="p-5 my-auto">
-          <h1>Hello, world! I'm Shuai Hao.</h1>
-          <p>I am a journalist, programmer and designer based in NYC. I graduated from Columbia University's dual degree program in Journalism and Computer Science.</p>
-          <p>Love beautiful interactive charts. <br />Love scrollable webpages. <br />Love smooth animations.</p>
-          <Button variant="primary" onClick={handleClick}>Portfolios</Button>{' '}
-        </Col>
-      </Row>
+      <Intro width={width} handleClick={handleClick}/>
       <div ref={ref}></div>
       <Tabs className="justify-content-center sticky" defaultActiveKey="Interactives" id="uncontrolled-tab-example">
         <Tab eventKey="Interactives" title="Interactives">
