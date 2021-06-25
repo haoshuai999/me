@@ -358,7 +358,7 @@ checkbox({
   ) {
     svg
       .append("text")
-      .attr("x", width > 768 ? 175 : 160)
+      .attr("x", width > 768 ? 335 : 160)
       .attr("y", height - 25 + 10 * flag)
       .attr("text-anchor", "start")
       .style("font-size", 13)

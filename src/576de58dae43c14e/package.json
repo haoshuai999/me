@@ -1,0 +1,14 @@
+{
+  "name": "576de58dae43c14e",
+  "main": "576de58dae43c14e@475.js",
+  "version": "475.0.0",
+  "homepage": "https://observablehq.com/d/576de58dae43c14e",
+  "author": {
+    "name": "CoinDesk",
+    "url": "https://observablehq.com/@coindesk-research"
+  },
+  "type": "module",
+  "peerDependencies": {
+    "@observablehq/runtime": "4"
+  }
+}
