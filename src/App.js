@@ -122,10 +122,7 @@ function App(props) {
       </Row>
       <Intro width={width} handleClick={handleClick}/>
       <div ref={ref}></div>
-      <Tabs className="justify-content-center sticky" defaultActiveKey="Interactives" id="uncontrolled-tab-example">
-        <Tab eventKey="Interactives" title="Interactives">
-          {InteractiveList}
-        </Tab>
+      <Tabs className="justify-content-center sticky" defaultActiveKey="Charts" id="uncontrolled-tab-example">
         <Tab eventKey="Charts" title="Charts">
           <Row className="p-2">
             <Col>
@@ -135,6 +132,9 @@ function App(props) {
           <Row className="p-2">
             {ChartList}
           </Row>
+        </Tab>
+        <Tab eventKey="Interactives" title="Interactives">
+          {InteractiveList}
         </Tab>
         <Tab eventKey="Articles" title="Articles">
           <Row className="p-2">
