@@ -36,9 +36,11 @@ const useContainerDimensions = myRef => {
       setDimensions(getDimensions())
     }
 
+    window.addEventListener("click", handleResize)
     window.addEventListener("resize", handleResize)
 
     return () => {
+      window.removeEventListener("click", handleResize)
       window.removeEventListener("resize", handleResize)
     }
   }, [myRef])
@@ -48,7 +50,7 @@ const useContainerDimensions = myRef => {
 
 function App(props) {
   const ref = useRef(null);
-  const componentRef = useRef();
+  const componentRef = useRef(null);
   const { width, height } = useContainerDimensions(componentRef);
 
   const interactives = [
@@ -122,7 +124,11 @@ function App(props) {
       </Row>
       <Intro width={width} handleClick={handleClick}/>
       <div ref={ref}></div>
-      <Tabs className="justify-content-center sticky" defaultActiveKey="Charts" id="uncontrolled-tab-example">
+      <Tabs 
+        className="justify-content-center sticky" 
+        defaultActiveKey="Charts"
+        id="uncontrolled-tab-example"
+      >
         <Tab eventKey="Charts" title="Charts">
           <Row className="p-2">
             <Col>
