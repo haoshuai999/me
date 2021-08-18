@@ -1,0 +1,14 @@
+{
+  "name": "543fc9bac1bd4e19",
+  "main": "543fc9bac1bd4e19@1001.js",
+  "version": "1001.0.0",
+  "homepage": "https://observablehq.com/d/543fc9bac1bd4e19",
+  "author": {
+    "name": "Shuai Hao",
+    "url": "https://observablehq.com/@shuaihaofzny"
+  },
+  "type": "module",
+  "peerDependencies": {
+    "@observablehq/runtime": "4"
+  }
+}

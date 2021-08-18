@@ -13,10 +13,10 @@ export default function Slide(props) {
                     src={require('../images/' + slide.image).default}
                     alt="Slide"
                     />
-                    <Carousel.Caption>
+                    {/* <Carousel.Caption>
                     {slide.title && <h3>First slide label</h3>}
                     {slide.description && <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>}
-                    </Carousel.Caption>
+                    </Carousel.Caption> */}
                 </Carousel.Item>
                 )
             )}

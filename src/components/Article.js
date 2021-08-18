@@ -15,7 +15,7 @@ export default function Article(props) {
             <Card.Text>
             { props.description }
             </Card.Text>
-            <Card.Link href={props.link}>View on Observable</Card.Link>
+            <Card.Link href={props.link}>More details</Card.Link>
         </Card.Body>
         {/* <Card.Footer className="text-muted">2 days ago</Card.Footer> */}
         </Card>
