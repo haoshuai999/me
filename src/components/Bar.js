@@ -2,7 +2,7 @@ import React, {useState, useRef, useEffect} from "react";
 import {Runtime, Inspector} from "@observablehq/runtime";
 import notebook from "../576de58dae43c14e";
 
-function Notebook({ width }) {
+function Bar({ width }) {
   const chartRef = useRef();
   const viewofChRef = useRef();
   const viewofEnddateRef = useRef();
@@ -41,4 +41,4 @@ function Notebook({ width }) {
   );
 }
 
-export default Notebook;
+export default Bar;
