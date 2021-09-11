@@ -266,12 +266,46 @@ FileAttachment("Cosmos_India_full-1@1.csv").csv({ typed: true })
 "https://observable-cors.glitch.me/"
 )});
   main.variable(observer("Bitcoin_data")).define("Bitcoin_data", ["d3","cors_head","nomics_api_key"], async function(d3,cors_head,nomics_api_key){return(
-(await d3.json(`${cors_head}https://api.nomics.com/v1/candles?key=${nomics_api_key}&interval=1d&currency=BTC`)).map(({timestamp, close}) => ({date: new Date(timestamp), price: close}))
+    (
+      await d3.json(
+        `${cors_head}https://api.coingecko.com/api/v3/coins/bitcoin/market_chart?vs_currency=usd&days=max`
+      )
+    )["prices"].reduce(
+      (acc, curr, index) => {
+        let date = new Date(curr[0]);
+        let price = parseFloat(curr[1]);
+    
+        acc[index] = {
+          date: date,
+          price: price
+        };
+    
+        return acc;
+      },
+    
+      []
+    )
 )});
   main.variable(observer("Cosmos_data")).define("Cosmos_data", ["d3","cors_head","nomics_api_key"], async function(d3,cors_head,nomics_api_key){return(
-(await d3.json(
-  `${cors_head}https://api.nomics.com/v1/candles?key=${nomics_api_key}&interval=1d&currency=ATOM`
-)).map(({ timestamp, close }) => ({ date: new Date(timestamp), price: close }))
+    (
+      await d3.json(
+        `${cors_head}https://api.coingecko.com/api/v3/coins/cosmos/market_chart?vs_currency=usd&days=max`
+      )
+    )["prices"].reduce(
+      (acc, curr, index) => {
+        let date = new Date(curr[0]);
+        let price = parseFloat(curr[1]);
+    
+        acc[index] = {
+          date: date,
+          price: price
+        };
+    
+        return acc;
+      },
+    
+      []
+    )
 )});
   main.variable(observer("bitcoin")).define("bitcoin", ["calculate_returns","Bitcoin_data"], function(calculate_returns,Bitcoin_data){return(
 calculate_returns(Bitcoin_data)
