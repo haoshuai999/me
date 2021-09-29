@@ -216,7 +216,7 @@ legend({color, title: data.get("China")["Indicator Name"]})
           .on('zoom', function(event) {
               g.selectAll('path')
                .attr('transform', event.transform);
-              //tooltip.attr("transform", event.transform);
+              tooltip.attr("transform", event.transform);
     });
     
     svg.call(zoom);
