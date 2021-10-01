@@ -213,6 +213,10 @@ legend({color, title: data.get("China")["Indicator Name"]})
 
     let zoom = d3.zoom()
           .scaleExtent([1, 8])
+          .translateExtent([
+            [0, 0],
+            [width, height]
+          ])
           .on('zoom', function(event) {
               g.selectAll('path')
                .attr('transform', event.transform);
