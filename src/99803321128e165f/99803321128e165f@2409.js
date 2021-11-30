@@ -630,8 +630,13 @@ new Date(cd_enddate_obj.setDate(cd_enddate_obj.getDate() + 1))
 new Date(startdate_obj.getTime())
 )});
   main.variable(observer("cd_startdate")).define("cd_startdate", ["cd_startdate_obj"], function(cd_startdate_obj){return(
+// new Date(
+//   cd_startdate_obj.setDate(cd_startdate_obj.getDate())
+// )
+//   .toISOString()
+//   .slice(0, 10)
 new Date(
-  cd_startdate_obj.setDate(cd_startdate_obj.getDate())
+  cd_startdate_obj.setDate(cd_startdate_obj.getDate() + 1)
 )
   .toISOString()
   .slice(0, 10)

@@ -10,8 +10,8 @@ md`# More Women Ran for Political Office in Singapore
 ## Singapore still has a long way to go compared to other countries in the world
 Candidate profile data in the 2020 Singaporean general election show Singapore is witnessing a growing female representation. But globally, some countries already have over 40% of seats held by women in the parliament. while Singapore has slightly over 20% in 2019.`
 )});
-  main.variable(observer("title1")).define("title1", ["md"], function(md){return(
-md`### Candidate Profile in 2020 Singaporean General Election`
+  main.variable(observer("title1")).define("title1", ["md","width"], function(md, width){return(
+width > 500 ? md`### Candidate Profile in 2020 Singaporean General Election` : md`##### Candidate Profile in 2020 Singaporean General Election`
 )});
   main.variable(observer("viewof profile")).define("viewof profile", ["Inputs"], function(Inputs){return(
 Inputs.radio(["Age", "Seniority", "Role"], {value: "Age", label: "Category"})
@@ -137,8 +137,8 @@ In recent years, women start to play a more and more important role in Singapore
 Singapore still has a long way to go when it comes to gender equality. There are not a lot of female party leaders in the parliament. Only 5.4% of party leaders are women, while 24.5% of non-leaders are women.
 `
 )});
-  main.variable(observer("title2")).define("title2", ["md"], function(md){return(
-md`### Women Representation in National Parliaments Around the World (1990-2019)`
+  main.variable(observer("title2")).define("title2", ["md","width"], function(md,width){return(
+width > 500 ? md`### Women Representation in National Parliaments Around the World (1990-2019)` : md`##### Women Representation in National Parliaments Around the World (1990-2019)`
 )});
   main.variable(observer("viewof year")).define("viewof year", ["Scrubber","years"], function(Scrubber,years){return(
 Scrubber(years, {
@@ -186,7 +186,7 @@ legend({color, title: data.get("China")["Indicator Name"]})
   svg
     .selectAll(".country")
     .on("touchmove mousemove", function(event, d) {
-      if (data.get(d.properties.name)[year]) {
+      if (data.get(d.properties.name) && data.get(d.properties.name)[year]) {
         tooltip.call(
           callout,
           `${d.properties.name}

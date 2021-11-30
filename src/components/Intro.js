@@ -10,7 +10,7 @@ export default function Intro({width, handleClick}) {
     if(width < 768) {
         return (
             <Row>
-                <Col md={4} sm={12} className="pt-5 pb-5 my-auto">
+                <Col md={4} sm={12} className="p-4 my-auto">
                 <Image src={Profile} alt="profile" fluid />
                 </Col>
                 <Col md={8} sm={12} className="p-5 my-auto">
@@ -24,7 +24,7 @@ export default function Intro({width, handleClick}) {
     } else {
         return (
             <Row className="full-height">
-                <Col md={4} sm={12} className="pt-5 pb-5 my-auto">
+                <Col md={4} sm={12} className="p-4 my-auto">
                 <Image src={Profile} alt="profile" fluid />
                 </Col>
                 <Col md={8} sm={12} className="p-5 my-auto">
