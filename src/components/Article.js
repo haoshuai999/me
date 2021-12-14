@@ -7,7 +7,7 @@ import Button from 'react-bootstrap/Button';
 
 export default function Article(props) {
     return (
-        <Card>
+        <Card id={props.id}>
         <Card.Header>{props.date}</Card.Header>
         <Card.Body>
             { props.chart }

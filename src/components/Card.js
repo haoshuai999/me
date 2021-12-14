@@ -12,7 +12,7 @@ export default function SimpleCard(props) {
             <Card.Text>
             {props.description}
             </Card.Text>
-            <Card.Link href={props.link}>Read More</Card.Link>
+            <Card.Link href={props.link}>More details</Card.Link>
         </Card.Body>
         </Card>
     )
