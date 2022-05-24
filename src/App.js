@@ -57,7 +57,7 @@ function App(props) {
 
   const interactives = [
     // { interactive: <Chinamap width = {width}/>, title: "Chinese NPC Deputy Map", description: "Use react and D3 to show the population and the number of NPC deputies of each Chinese province.", link: "https://haoshuai999.github.io/china-data-map/", date: "Aug. 8 2021"},
-    { interactive: <Returns width = {width > 500 ? width : width - 80}/>, title: "Crypto Returns Over Time", description: "Fetch the lastest crypto returns data using the notebook.", link: "https://observablehq.com/d/99803321128e165f", date: "Sept. 14 2020"},
+    // { interactive: <Returns width = {width > 500 ? width : width - 80}/>, title: "Crypto Returns Over Time", description: "Fetch the lastest crypto returns data using the notebook.", link: "https://observablehq.com/d/99803321128e165f", date: "Sept. 14 2020"},
     { interactive: <Candidate width = {width}/>, title: "The 2020 Singaporean General Election", description: "I made an interactive bar chart and a world map showing the growth of female political candidates in Singapore.", link: "https://observablehq.com/d/fb5ed6161a8a33b8", date: "Sept. 2 2021"},
     { interactive: <Cosmos width = {width > 500 ? width : width - 20}/>, title: "The Growth of Cosmos India", description: "Cosmos aims to be the internet of blockchain. Cosmos's token ATOM and its Indian branch grows fast in 2020.", link: "https://observablehq.com/d/51fbdbc746a1de7e", date: "Oct. 1 2020"},
     { interactive: <Bar width = {width}/>, title: "Vertical Returns Bar Chart", description: "Compare the returns of different crypto assets.", link: "https://observablehq.com/d/576de58dae43c14e", date: "Sept. 20 2020"},
