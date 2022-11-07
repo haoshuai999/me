@@ -16,7 +16,8 @@ const ARTICLE = [
 ]
 
 const CHART = [
-  { image: "treemap.png", title: "Automated Chart Templates", date: "Aug. 12, 2020", description: "I have built 17 automated chart templates for journalists to make customizable charts on Observable so far.", link: "https://docs.google.com/document/d/1b64Uw2dEoVK-U7xVlDwHdeNiCrhuWth_oegkTPIjslY/edit#"},
+  { image: "hot-weather.png", title: "China Extreme Hot Days", date: "Nov. 4, 2022", description: "I created a series of data visualizations using the weather data from the NOAA. I worked with two teammates to analyze the extreme hot days in China in 2022.", link: "https://observablehq.com/@haoshuai999/china-extreme-hot-days"},
+  { image: "treemap.png", title: "Automated Chart Templates", date: "Aug. 12, 2020", description: "I built 17 automated chart templates for journalists to make customizable charts on Observable so far.", link: "https://docs.google.com/document/d/1b64Uw2dEoVK-U7xVlDwHdeNiCrhuWth_oegkTPIjslY/edit#"},
   { image: "Slavery.jpeg", title: "Slavery’s Explosive Growth, in Charts: How ’20 and odd’ Became Millions", date: "Aug. 28, 2019", description: "The largest project I worked on at USA TODAY Network is about the history of slavery in the US since 1619.", link: "https://www.usatoday.com/pages/interactives/1619-african-slavery-history-maps-routes-interactive-graphic/"},
   { image: "final-project.jpeg", title: "Evolution of Terrorism", date: "Sept. 26, 2019", description: "I explored why and how terrorism evolved over the years by analyzing 180,000 rows of data using D3.js and scrollama.js.", link: "https://haoshuai999.github.io"},
   { image: "woman.png", title: "Know her name: The women who fought for the right to vote", date: "Aug. 14, 2019", description: "I modify a timeline template in Angular.js to show the history of women's suffrage", link: "https://www.usatoday.com/pages/interactives/women-suffrage-timeline/"},
