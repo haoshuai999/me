@@ -273,7 +273,7 @@ d3.format(".0%")
 md`## Data`
 )});
   main.variable(observer("cors_head")).define("cors_head", function(){return(
-"https://observable-cors.glitch.me/"
+""
 )});
   main.variable(observer("data")).define("data", ["d3","cors_head","startdate","enddate"], async function(d3,cors_head,startdate,enddate){return(
 await d3.csv(

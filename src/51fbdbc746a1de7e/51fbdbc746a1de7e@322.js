@@ -263,7 +263,7 @@ FileAttachment("Cosmos_India_full-1@1.csv").csv({ typed: true })
 '41838147e6618dff5014dc031ae5d9f0'
 )});
   main.variable(observer("cors_head")).define("cors_head", function(){return(
-"https://observable-cors.glitch.me/"
+""
 )});
   main.variable(observer("Bitcoin_data")).define("Bitcoin_data", ["d3","cors_head","nomics_api_key"], async function(d3,cors_head,nomics_api_key){return(
     (

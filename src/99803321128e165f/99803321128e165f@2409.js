@@ -616,7 +616,7 @@ d3.format(".2%")
 md`### Fetch crypto data from CD API`
 )});
   main.variable(observer("cors_head2")).define("cors_head2", function(){return(
-"https://observable-cors.glitch.me/"
+"https://corsproxy.io/?"
 )});
   main.variable(observer("cd_enddate_obj")).define("cd_enddate_obj", ["enddate"], function(enddate){return(
 new Date(enddate)
@@ -668,12 +668,12 @@ calcuate_return(ftse_data, 0)
   main.variable(observer()).define(["md"], function(md){return(
 md`### Fetch non-crypto data from St. Louis Federal Reserve Bank and Nasdaq.com`
 )});
-  main.variable(observer("gold_data")).define("gold_data", ["d3","cors_head2"], async function(d3,cors_head2){return(
+  main.variable(observer("gold_data")).define("gold_data", ["d3","cors_head2","formatDate2"], async function(d3,cors_head2,formatDate2){return(
 (await d3.csv(
-  `${cors_head2}https://fred.stlouisfed.org/graph/fredgraph.csv?id=GOLDPMGBD228NLBM`
-)).map(({ DATE, GOLDPMGBD228NLBM }) => ({
-  date: new Date(DATE),
-  price: GOLDPMGBD228NLBM
+  `${cors_head2}https://query1.finance.yahoo.com/v7/finance/download/GC%3DF?period1=1230768000&period2=${new Date().getTime()}&interval=1d&events=history`
+)).map(({ Date, Close }) => ({
+  date: formatDate2(Date),
+  price: Close
 }))
 )});
   main.variable(observer("sp500_data")).define("sp500_data", ["d3","cors_head2"], async function(d3,cors_head2){return(
@@ -684,12 +684,12 @@ md`### Fetch non-crypto data from St. Louis Federal Reserve Bank and Nasdaq.com`
   price: SP500
 }))
 )});
-  main.variable(observer("silver_data")).define("silver_data", ["d3","cors_head2"], async function(d3,cors_head2){return(
+  main.variable(observer("silver_data")).define("silver_data", ["d3","cors_head2","formatDate2"], async function(d3,cors_head2,formatDate2){return(
 (await d3.csv(
-  `${cors_head2}https://fred.stlouisfed.org/graph/fredgraph.csv?id=SLVPRUSD`
-)).map(({ DATE, SLVPRUSD }) => ({
-  date: new Date(DATE),
-  price: SLVPRUSD
+  `${cors_head2}https://query1.finance.yahoo.com/v7/finance/download/SI%3DF?period1=1027987200&period2=${new Date().getTime()}&interval=1d&events=history`
+)).map(({ Date, Close }) => ({
+  date: formatDate2(Date),
+  price: Close
 }))
 )});
   main.variable(observer("nikkei_data")).define("nikkei_data", ["d3","cors_head2"], async function(d3,cors_head2){return(
@@ -898,8 +898,6 @@ date => {
       }
     }
   }
-
-  console.log(startdate_obj);
   
   if (ch.includes("Bonds")) {
     let flag = true;
@@ -916,7 +914,6 @@ date => {
       }
     }
   }
-  console.log(startdate_obj);
   
   if (ch.includes("Gold")) {
     let flag = true;
@@ -933,7 +930,6 @@ date => {
       }
     }
   }
-  console.log(startdate_obj);
 
   if (ch.includes("Silver")) {
     let flag = true;

@@ -27,8 +27,6 @@ function Congress({width}) {
       }
     }, [width, module]);
 
-    console.log(width);
-
   return (
     <>
       <div ref={viewofRRef} />
