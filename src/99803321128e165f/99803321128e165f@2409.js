@@ -616,7 +616,7 @@ d3.format(".2%")
 md`### Fetch crypto data from CD API`
 )});
   main.variable(observer("cors_head2")).define("cors_head2", function(){return(
-"https://corsproxy.io/?"
+"https://proxy.cors.sh/"
 )});
   main.variable(observer("cd_enddate_obj")).define("cd_enddate_obj", ["enddate"], function(enddate){return(
 new Date(enddate)
