@@ -1,18 +1,18 @@
 import React, { useRef, useState, useEffect } from 'react';
-import SimpleNav from "./components/Nav";
-import Article from "./components/Article";
-import Slide from "./components/Slide";
-import SimpleCard from "./components/Card";
-import Returns from "./components/Returns";
-import Bar from "./components/Bar";
-import Heatmap from "./components/Heatmap";
-import Cosmos from "./components/Cosmos";
-import Radial from "./components/Radial";
-import Tree from "./components/Tree";
-import Congress from "./components/Congress";
-import Chinamap from "./components/Map";
-import Candidate from "./components/Candidate";
-import Intro from "./components/Intro";
+import SimpleNav from "./components/ui/Nav";
+import Article from "./components/ui/Article";
+import Slide from "./components/ui/Slide";
+import SimpleCard from "./components/ui/Card";
+import Returns from "./components/chart/Returns";
+import Bar from "./components/chart/Bar";
+import Heatmap from "./components/chart/Heatmap";
+import Cosmos from "./components/chart/Cosmos";
+import Radial from "./components/chart/Radial";
+import Tree from "./components/chart/Tree";
+import Congress from "./components/chart/Congress";
+import Chinamap from "./components/chart/Map";
+import Candidate from "./components/chart/Candidate";
+import Intro from "./components/ui/Intro";
 
 import './App.css';
 import Container from 'react-bootstrap/Container';
@@ -165,18 +165,5 @@ function App(props) {
     </Container>
   );
 }
-
-// class ReadyToScroll extends Component {
-//   constructor(props) {
-//     super(props);
-//     this.myRef = React.createRef();
-//   }
-//   render() {
-//     return <div ref={this.myRef}>Element to scroll to</div>;
-//   }
-
-//   executeScroll = () => this.myRef.current.scrollIntoView();
-//   // run this method to execute scrolling.
-// }
 
 export default App;

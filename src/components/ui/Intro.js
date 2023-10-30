@@ -1,9 +1,9 @@
-import React, { useRef, useState, useEffect } from 'react';
+import React from 'react';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Button from 'react-bootstrap/Button';
 import Image from 'react-bootstrap/Image';
-import Profile from "../images/Profile.jpeg";
+import Profile from "../../images/Profile.jpeg";
 
 
 export default function Intro({width, handleClick}) {

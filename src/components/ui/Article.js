@@ -1,9 +1,6 @@
-import React, { useState } from 'react';
-//import Returns from "./Returns";
-//import HeatmapExample from "./Heatmap";
+import React from 'react';
 
 import Card from 'react-bootstrap/Card';
-import Button from 'react-bootstrap/Button';
 
 export default function Article(props) {
     return (
@@ -17,7 +14,6 @@ export default function Article(props) {
             </Card.Text>
             <Card.Link href={props.link}>More details</Card.Link>
         </Card.Body>
-        {/* <Card.Footer className="text-muted">2 days ago</Card.Footer> */}
         </Card>
     )
 }

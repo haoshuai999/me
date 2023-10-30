@@ -1,6 +1,6 @@
 import React, {useRef, useEffect, useState} from "react";
 import {Runtime, Inspector} from "@observablehq/runtime";
-import notebook from "../684a54bcf8262fbd";
+import notebook from "../../684a54bcf8262fbd/684a54bcf8262fbd@361";
 
 function Radial() {
     const chartRef = useRef();

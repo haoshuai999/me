@@ -1,6 +1,6 @@
 import React, {useRef, useEffect, useState} from "react";
 import {Runtime, Inspector} from "@observablehq/runtime";
-import notebook from "../6a0e7e787418caa2";
+import notebook from "../../6a0e7e787418caa2/6a0e7e787418caa2@238";
 
 function Tree() {
     const chartRef = useRef();

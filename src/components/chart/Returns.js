@@ -1,6 +1,6 @@
 import React, {useRef, useEffect, useState} from "react";
 import {Runtime, Inspector} from "@observablehq/runtime";
-import notebook from "../99803321128e165f";
+import notebook from "../../99803321128e165f/99803321128e165f@2409";
 
 function Returns({ width }) {
   const viewofStartdateRef = useRef();

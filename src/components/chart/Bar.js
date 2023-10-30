@@ -1,6 +1,6 @@
 import React, {useState, useRef, useEffect} from "react";
 import {Runtime, Inspector} from "@observablehq/runtime";
-import notebook from "../576de58dae43c14e";
+import notebook from "../../576de58dae43c14e/576de58dae43c14e@475";
 
 function Bar({ width }) {
   const chartRef = useRef();

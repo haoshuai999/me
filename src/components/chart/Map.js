@@ -1,6 +1,6 @@
 import React, {useRef, useEffect, useState} from "react";
 import {Runtime, Inspector} from "@observablehq/runtime";
-import notebook from "../543fc9bac1bd4e19";
+import notebook from "../../543fc9bac1bd4e19/543fc9bac1bd4e19@1001";
 
 function Chinamap({width}) {
   const viewofYearRef = useRef();

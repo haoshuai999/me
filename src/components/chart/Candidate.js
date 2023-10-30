@@ -1,6 +1,6 @@
 import React, {useState, useRef, useEffect} from "react";
 import {Runtime, Inspector} from "@observablehq/runtime";
-import notebook from "../fb5ed6161a8a33b8";
+import notebook from "../../fb5ed6161a8a33b8/fb5ed6161a8a33b8@601";
 
 function Candidate({ width }) {
   const viewofProfileRef = useRef();
