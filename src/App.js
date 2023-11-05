@@ -13,6 +13,7 @@ import Congress from "./components/chart/Congress";
 import Chinamap from "./components/chart/Map";
 import Candidate from "./components/chart/Candidate";
 import Intro from "./components/ui/Intro";
+import Test from './components/chart/Test';
 
 import './App.css';
 import Container from 'react-bootstrap/Container';
@@ -53,9 +54,10 @@ const useContainerDimensions = myRef => {
 function App(props) {
   const ref = useRef(null);
   const componentRef = useRef(null);
-  const { width, height } = useContainerDimensions(componentRef);
+  const { width, _ } = useContainerDimensions(componentRef);
 
   const interactives = [
+    { interactive: <Test width = {width}/>, title: "Chinese NPC Deputy Map", description: "Use react and D3 to show the population and the number of NPC deputies of each Chinese province.", link: "https://haoshuai999.github.io/china-data-map/", date: "Aug. 8 2021"},
     { interactive: <Chinamap width = {width}/>, title: "Chinese NPC Deputy Map", description: "Use react and D3 to show the population and the number of NPC deputies of each Chinese province.", link: "https://haoshuai999.github.io/china-data-map/", date: "Aug. 8 2021"},
     { interactive: <Returns width = {width > 500 ? width : width - 80}/>, title: "Crypto Returns Over Time", description: "Fetch the lastest crypto returns data using the notebook.", link: "https://observablehq.com/d/99803321128e165f", date: "Sept. 14 2020"},
     { interactive: <Candidate width = {width}/>, title: "The 2020 Singaporean General Election", description: "I made an interactive bar chart and a world map showing the growth of female political candidates in Singapore.", link: "https://observablehq.com/d/fb5ed6161a8a33b8", date: "Sept. 2 2021"},

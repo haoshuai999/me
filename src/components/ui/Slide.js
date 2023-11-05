@@ -8,9 +8,9 @@ export default function Slide(props) {
             {props.data.map((slide, index) => (
                 <Carousel.Item id={`slide=${index}`}>
                     <img
-                    className="d-block w-100"
-                    src={require('../../images/' + slide.image).default}
-                    alt="Slide"
+                        className="d-block w-100"
+                        src={require('../../images/' + slide.image).default}
+                        alt="Slide"
                     />
                 </Carousel.Item>
                 )
