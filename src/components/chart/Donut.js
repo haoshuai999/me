@@ -11,6 +11,10 @@ const Donut = ({ width, height }) => {
     const [data, setData] = useState([]);
     const [option, setOption] = useState("Senate");
 
+    const onOptionChange = e => {
+        setOption(e.target.value);
+    }
+
     d3.csv(congressData).then(function(d) {
         setData(d);
     }).catch(function(err) {
@@ -114,32 +118,38 @@ const Donut = ({ width, height }) => {
             (d, i) => labelHeight * i * 1.8 + labelHeight / 1.1 + height * 0.8
             )
             .style('font-size', `${labelHeight}px`);
-    }, [data]);
+    }, [data, option]);
 
     return (
         <div>
-            {/* <div class="form-check">
-                <input 
-                    class="form-check-input"
-                    type="radio"
-                    name="flexRadio1" 
-                    checked={setOption("Senate")}
-                />
-                <label class="form-check-label" for="flexRadio1">
-                    Senate
-                </label>
+            <div class="d-flex p-2">
+                <div class="form-check mx-2">
+                    <input 
+                        class="form-check-input"
+                        type="radio"
+                        name="flexRadio1" 
+                        value="Senate"
+                        checked={option === "Senate"}
+                        onChange={onOptionChange}
+                    />
+                    <label class="form-check-label" for="flexRadio1">
+                        Senate
+                    </label>
+                </div>
+                <div class="form-check mx-2">
+                    <input 
+                        class="form-check-input"
+                        type="radio"
+                        name="flexRadio2"
+                        value="House of Representative"
+                        checked={option === "House of Representative"}
+                        onChange={onOptionChange}
+                    />
+                    <label class="form-check-label" for="flexRadio2">
+                        House of Representative
+                    </label>
+                </div>
             </div>
-            <div class="form-check">
-                <input 
-                    class="form-check-input"
-                    type="radio"
-                    name="flexRadio2"
-                    checked={setOption("House of Representative")}
-                />
-                <label class="form-check-label" for="flexRadio2">
-                    House of Representative
-                </label>
-            </div> */}
             <svg ref={svgRef} />
         </div>
     );

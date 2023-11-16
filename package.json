@@ -1,7 +1,7 @@
 {
   "homepage": "http://haoshuai999.github.io/me",
   "name": "shuai-website",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "private": true,
   "dependencies": {
     "@observablehq/runtime": "4",
