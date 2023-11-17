@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef, useMemo } from "react";
 import * as d3 from "d3";
 import congressData from "../../data/congress.csv";
 
@@ -14,15 +14,15 @@ const Congress = ({ width }) => {
 
     const onOptionChange = e => {
         setOption(e.target.value);
-    }
-
-    d3.csv(congressData).then(function(d) {
-        setData(d);
-    }).catch(function(err) {
-        throw err;
-    })
-
+    };
+    
     useEffect(() => {
+        d3.csv(congressData).then(function(d) {
+            setData(d);
+        }).catch(function(err) {
+            throw err;
+        });
+        
         const color = d3.scaleOrdinal()
             .domain(data.map(d => d.Stance))
             .range(["#FCC117","#FF0000","#608AD8","#D8D8D8"]);
@@ -91,7 +91,7 @@ const Congress = ({ width }) => {
             .append('g')
             .attr(
             'transform',
-            `translate(${-width / 2 + margin.left},${-height / 2.1})`
+            `translate(${-width / 2.2 + margin.left},${-height / 2.1})`
             );
 
         legend
@@ -119,7 +119,7 @@ const Congress = ({ width }) => {
             (d, i) => labelHeight * i * 1.8 + labelHeight / 1.1 + height * 0.8
             )
             .style('font-size', `${labelHeight}px`);
-    }, [data, option]);
+    }, []);
 
     return (
         <div>
