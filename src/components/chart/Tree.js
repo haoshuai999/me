@@ -1,19 +1,11 @@
 import React, { useState, useEffect, useRef } from "react";
 import * as d3 from "d3";
-import treeData from "../../data/family_tree.json";
+import data from "../../data/family_tree.json";
 
 const Tree = ({ width }) => {
     const svgRef = useRef(null);
 
-    const [data, setData] = useState([]);
-
     useEffect(() => {
-        d3.json(treeData).then(function(d) {
-            setData(d);
-        }).catch(function(err) {
-            throw err;
-        });
-    
         const tree = (data) => {
             const treeRoot = d3.hierarchy(data);
             treeRoot.dx = 50;
@@ -31,9 +23,11 @@ const Tree = ({ width }) => {
         });
 
         const svg = d3
-            .create("svg")
+            .select(svgRef.current)
             .attr("viewBox", [-150, 0, width, x1 - x0 + root.dx * 2])
             .style("background-color", "white");
+
+        svg.selectAll("*").remove();
 
         const g = svg
             .append("g")
@@ -80,7 +74,7 @@ const Tree = ({ width }) => {
             .clone(true)
             .lower()
             .attr("stroke", "white");
-    }, []);
+    }, [width]);
 
     return (
         <div>

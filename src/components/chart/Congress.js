@@ -119,7 +119,7 @@ const Congress = ({ width }) => {
             (d, i) => labelHeight * i * 1.8 + labelHeight / 1.1 + height * 0.8
             )
             .style('font-size', `${labelHeight}px`);
-    }, []);
+    }, [width]);
 
     return (
         <div>
