@@ -22,7 +22,7 @@ const Congress = ({ width }) => {
         }).catch(function(err) {
             throw err;
         });
-        
+
         const color = d3.scaleOrdinal()
             .domain(data.map(d => d.Stance))
             .range(["#FCC117","#FF0000","#608AD8","#D8D8D8"]);
@@ -123,30 +123,30 @@ const Congress = ({ width }) => {
 
     return (
         <div>
-            <div class="d-flex p-2">
-                <div class="form-check mx-2">
+            <div className="d-flex p-2">
+                <div className="form-check mx-2">
                     <input 
-                        class="form-check-input"
+                        className="form-check-input"
                         type="radio"
                         name="flexRadio1" 
                         value="Senate"
                         checked={option === "Senate"}
                         onChange={onOptionChange}
                     />
-                    <label class="form-check-label" for="flexRadio1">
+                    <label className="form-check-label">
                         Senate
                     </label>
                 </div>
-                <div class="form-check mx-2">
+                <div className="form-check mx-2">
                     <input 
-                        class="form-check-input"
+                        className="form-check-input"
                         type="radio"
                         name="flexRadio2"
                         value="House of Representative"
                         checked={option === "House of Representative"}
                         onChange={onOptionChange}
                     />
-                    <label class="form-check-label" for="flexRadio2">
+                    <label className="form-check-label">
                         House of Representative
                     </label>
                 </div>

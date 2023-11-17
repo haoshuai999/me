@@ -7,13 +7,13 @@ const Tree = ({ width }) => {
 
     const [data, setData] = useState([]);
 
-    d3.json(treeData).then(function(d) {
-        setData(d);
-    }).catch(function(err) {
-        throw err;
-    })
-
     useEffect(() => {
+        d3.json(treeData).then(function(d) {
+            setData(d);
+        }).catch(function(err) {
+            throw err;
+        });
+    
         const tree = (data) => {
             const treeRoot = d3.hierarchy(data);
             treeRoot.dx = 50;
@@ -80,7 +80,7 @@ const Tree = ({ width }) => {
             .clone(true)
             .lower()
             .attr("stroke", "white");
-    }, [data]);
+    }, []);
 
     return (
         <div>
