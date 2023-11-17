@@ -68,7 +68,7 @@ function App(props) {
   ];
 
   const ArticleList = props.articles.map((article, index) => (
-    <Col md={6} sm={12} className="p-2">
+    <Col md={6} sm={12} className="p-2" key={`article-${index}`}>
       <SimpleCard 
         id = {`article-${index}`}
         image = {article.image}
@@ -82,7 +82,7 @@ function App(props) {
   );
 
   const ChartList = props.charts.map((chart, index) => (
-    <Col md={6} sm={12} className="p-2">
+    <Col md={6} sm={12} className="p-2" key={`chart-${index}`}>
       <SimpleCard 
         id = {`chart-${index}`}
         image = {chart.image}
@@ -96,7 +96,7 @@ function App(props) {
   );
 
   const InteractiveList = interactives.map((interact, index) => (
-    <Row className="pt-2 pb-2">
+    <Row className="pt-2 pb-2" key={`interactive-${index}`}>
       <Col ref={componentRef}>
         <Article
           id={`interactive-${index}`}
