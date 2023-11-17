@@ -63,9 +63,9 @@ function App(props) {
     { interactive: <Bar width = {width}/>, title: "Vertical Returns Bar Chart", description: "Compare the returns of different crypto assets.", link: "https://observablehq.com/d/576de58dae43c14e", date: "Sept. 20 2020"},
     { interactive: <Heatmap width = {width}/>, title: "BTC Returns Heatmap", description: "Bitcoin performs better on US trading hours than Asian trading hours.", link: "https://observablehq.com/@shuaihaofzny/heatmap-example", date: "Sept. 30 2020"},
     { interactive: <Radial width = {width}/>, title: "Coinbase Growth", description: "Total assets on Coinbase increased nearly 150% in 2021Q1.", link: "https://observablehq.com/d/684a54bcf8262fbd", date: "Apr. 3 2021"},
-    { interactive: <Congress width = {width} height= {height}/>, title: "United States Congress", description: "I use some dummy data to make this half donut chart. This can also be used for US Congress related charts", link: "https://observablehq.com/d/7c527de234abd676", date: "Jan. 7 2021"},
+    { interactive: <Congress width = {width}/>, title: "United States Congress", description: "I use some dummy data to make this half donut chart. This can also be used for US Congress related charts", link: "https://observablehq.com/d/7c527de234abd676", date: "Jan. 7 2021"},
     { interactive: <Tree width = {width}/>, title: "Crypto Family Tree", description: "Many crypto assets are related to each other through forking.", link: "https://observablehq.com/d/6a0e7e787418caa2", date: "Mar. 21 2021"}
-  ]
+  ];
 
   const ArticleList = props.articles.map((article, index) => (
     <Col md={6} sm={12} className="p-2">

@@ -2,9 +2,10 @@ import React, { useState, useEffect, useRef } from "react";
 import * as d3 from "d3";
 import congressData from "../../data/congress.csv";
 
-const Congress = ({ width, height }) => {
+const Congress = ({ width }) => {
     const svgRef = useRef(null);
     const margin = ({top: 50, right: 10, bottom: 30, left: 10});
+    const height = Math.min(width, 800);
     const radius = Math.min(width, height) / 2;
     const labelHeight = height / 50;
 
