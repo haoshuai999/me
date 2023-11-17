@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef, useMemo } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import * as d3 from "d3";
 import congressData from "../../data/congress.csv";
 
