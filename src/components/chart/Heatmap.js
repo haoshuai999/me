@@ -20,22 +20,21 @@ const Heatmap = ({ width }) => {
     
     useEffect(() => {
         d3.csv(heatmapData).then(function(d) {
-            d.forEach((row) => {
-                return {
+            d.forEach((row, index) => {
+                d[index] = {
                     Timezone: parseInt(row.Timezone),
                     Month: parseInt(row.Month),
                     Value: parseFloat(row.Value)
-                }
+                };
             });
             setData(d);
         }).catch(function(err) {
             throw err;
         });
 
-        const color = d3
-            .scaleLinear()
+        const color = d3.scaleLinear()
             .domain([d3.min(data, d => d.Value), 0, d3.max(data, d => d.Value)])
-            .range(["#FCC117", "#FFFFFF","#608AD8"]);
+            .range(["#FCC117", "#FFFFFF", "#608AD8"]);
 
         const legend = g => {
             g.attr("transform", `translate(0, ${h - margin.bottom - legendBarHeight })`)
@@ -44,7 +43,9 @@ const Heatmap = ({ width }) => {
                 .attr("height", legendBarHeight)
                 .style("fill", "url(#linear-gradient)");
             
-            g.call(axisBottom);
+            g.call(axisBottom)
+                .selectAll(".axis line")
+                .style("stroke", "#FFFFFF");
         };
 
         const axisScale = d3.scaleLinear()
@@ -53,19 +54,22 @@ const Heatmap = ({ width }) => {
 
         const axisBottom = g => {
             g.classed("axis axis--bottom", true)
-            .attr("transform", `translate(0, ${h - margin.bottom - legendBarHeight})`)
-            .call(d3.axisBottom(axisScale)
-                .ticks(width / 80)
-                .tickSize(legendBarHeight)    
-                .tickFormat(d3.format(".0%")))
-            .select(".domain")
-            .remove()
+                .attr("transform", `translate(0, ${h - margin.bottom - legendBarHeight})`)
+                .call(d3.axisBottom(axisScale)
+                    .ticks(width / 80)
+                    .tickSize(legendBarHeight)    
+                    .tickFormat(d3.format(".0%")))
+                    .style("font-size", 20)
+                .select(".domain")
+                .remove()
         };
 
         const svg = d3.select(svgRef.current)
             .attr("width", width)
             .attr("height", h)
-            .classed("crashes-heatmap", true)
+            .classed("crashes-heatmap", true);
+        
+        svg.selectAll("*").remove();
         
         const defs = svg.append("defs");
         const linearGradient = defs.append("linearGradient")
@@ -76,7 +80,7 @@ const Heatmap = ({ width }) => {
             .enter().append("stop")
             .attr("offset", d => d.offset)
             .attr("stop-color", d => d.color);
-        
+
         const g = svg.append("g")
             .attr("transform", `translate(${margin.left}, ${margin.top})`)
         
@@ -97,8 +101,9 @@ const Heatmap = ({ width }) => {
             .attr("x", d => d.Month * gridSize + gridSize/2)
             .attr("y", d => d.Timezone * gridSize + gridSize/2)
             .style("text-anchor", "middle")
+            .style("font-size", 20)
             .attr("dy", ".35em")
-            .text(d => formatValue(d.Value))
+            .text(d => formatValue(d.Value));
         
         g.selectAll(".timezone")
             .data(Timezone)
