@@ -93,7 +93,7 @@ const Heatmap = ({ width }) => {
                 .attr("height", gridSize)
                 .attr("fill", d => color(d.Value))
                 .attr("stroke", "#e2e2e2");
-          
+        
         g.selectAll("text")
             .data(data)
             .enter()

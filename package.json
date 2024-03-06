@@ -1,17 +1,12 @@
 {
   "homepage": "http://haoshuai999.github.io/me",
   "name": "shuai-website",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "private": true,
   "dependencies": {
     "@observablehq/runtime": "4",
-    "@shuaihaofzny/heatmap-example": "https://api.observablehq.com/@shuaihaofzny/heatmap-example.tgz?v=3",
-    "@testing-library/jest-dom": "^5.11.10",
-    "@testing-library/react": "^11.2.6",
-    "@testing-library/user-event": "^12.8.3",
     "bootstrap": "^4.6.0",
     "d3": "^7.8.5",
-    "jsonfile": "^6.1.0",
     "npm": "^7.15.1",
     "react": "^17.0.2",
     "react-bootstrap": "^1.5.2",
@@ -22,8 +17,8 @@
   "scripts": {
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build",
-    "start": "react-scripts start",
-    "build": "react-scripts build",
+    "start": "react-scripts --openssl-legacy-provider start",
+    "build": "react-scripts --openssl-legacy-provider build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
