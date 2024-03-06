@@ -67,9 +67,14 @@ const Cosmos = ({ width }) => {
             .domain(d3.extent(cosmosData, d => d.percentage * 100))
             .range([height - margin.bottom, margin.top]);
 
+
+        //console.log(cosmosData.map(d => x(new Date(d.date))));
         const line = d3
             .line()
-            .defined(d => !isNaN(d.percentage))
+            .defined(d => {
+                console.log(d.percentage);
+                return !isNaN(d.percentage);
+            })
             .x(d => x(new Date(d.date)))
             .y(d => y2(d.percentage * 100));
 
@@ -177,9 +182,8 @@ const Cosmos = ({ width }) => {
         svg.append("g").call(yAxis2);
 
         svg
-            .selectAll("path")
-            .data(bitcoinData)
-            .join("path")
+            .append("path")
+            .datum(bitcoinData)
             .attr("fill", "none")
             .attr("stroke", "#FCC117")
             .attr("stroke-width", 3)
@@ -188,9 +192,8 @@ const Cosmos = ({ width }) => {
             .attr("d", line);
 
         svg
-            .selectAll("path")
-            .data(cosmosData)
-            .join("path")
+            .append("path")
+            .datum(cosmosData)
             .attr("fill", "none")
             .attr("stroke", "#FF0000")
             .attr("stroke-width", 3)
@@ -216,14 +219,14 @@ const Cosmos = ({ width }) => {
             .style("stroke-width", 3)
             .attr("x1", 100)
             .attr("y1", function(d, i) {
-            return 100 + i * 25;
+                return 100 + i * 25;
             })
             .attr("x2", 150)
             .attr("y2", function(d, i) {
-            return 100 + i * 25;
+                return 100 + i * 25;
             })
             .style("stroke", function(d) {
-            return color(d);
+                return color(d);
             });
 
         svg
@@ -233,13 +236,13 @@ const Cosmos = ({ width }) => {
             .append("text")
             .attr("x", 160)
             .attr("y", function(d, i) {
-            return 100 + i * 25;
+                return 100 + i * 25;
             })
             .style("fill", function(d) {
-            return color(d);
+                return color(d);
             })
             .text(function(d) {
-            return d;
+                return d;
             })
             .attr("text-anchor", "left")
             .style("alignment-baseline", "middle")

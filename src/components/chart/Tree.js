@@ -35,8 +35,7 @@ const Tree = ({ width }) => {
             .attr("font-size", 25)
             .attr("transform", `translate(${root.dy / 3},${root.dx - x0})`);
 
-        const link = g
-            .append("g")
+        g.append("g")
             .attr("fill", "none")
             .attr("stroke", "#608AD8")
             .attr("stroke-width", 1.5)
