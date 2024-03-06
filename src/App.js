@@ -45,7 +45,7 @@ const useContainerDimensions = myRef => {
       window.removeEventListener("click", handleResize)
       window.removeEventListener("resize", handleResize)
     }
-  }, [myRef])
+  }, [myRef, getDimensions])
 
   return dimensions;
 };

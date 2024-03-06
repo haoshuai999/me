@@ -127,7 +127,7 @@ const Heatmap = ({ width }) => {
         
         g.append("g")
             .call(legend);
-    }, [width]);
+    }, [width, Timezone, data, formatValue, gridSize, margin, months, w, h]);
 
     return (
         <div>

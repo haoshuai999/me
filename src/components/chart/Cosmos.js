@@ -16,7 +16,7 @@ const Cosmos = ({ width }) => {
           d => d.date >= new Date("2019-11-01") && d.date <= new Date("2020-09-01")
         );
         let returns = filter.map((currentValue, index, array) => {
-          if (index == 0) {
+          if (index === 0) {
             return {
               date: array[index].date,
               percentage: 0
@@ -71,10 +71,7 @@ const Cosmos = ({ width }) => {
         //console.log(cosmosData.map(d => x(new Date(d.date))));
         const line = d3
             .line()
-            .defined(d => {
-                console.log(d.percentage);
-                return !isNaN(d.percentage);
-            })
+            .defined(d => !isNaN(d.percentage))
             .x(d => x(new Date(d.date)))
             .y(d => y2(d.percentage * 100));
 
@@ -252,7 +249,7 @@ const Cosmos = ({ width }) => {
         //     .append("g")
         //     .attr("transform", "translate(300, 60)")
         //     .call(legend);
-    }, [width]);
+    }, [width, bitcoinData, cosmosData, data, margin]);
 
     return (
         <div>
