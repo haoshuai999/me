@@ -67,8 +67,6 @@ const Cosmos = ({ width }) => {
             .domain(d3.extent(cosmosData, d => d.percentage * 100))
             .range([height - margin.bottom, margin.top]);
 
-
-        //console.log(cosmosData.map(d => x(new Date(d.date))));
         const line = d3
             .line()
             .defined(d => !isNaN(d.percentage))
@@ -85,8 +83,8 @@ const Cosmos = ({ width }) => {
                 .style("font-size", 14)
                 .attr("transform", `translate(0,${height - margin.bottom})`)
                 .call(g => {
-                g.select(".domain").remove();
-            });
+                    g.select(".domain").remove();
+                });
 
         const xAxis2 = g =>
             g.call(d3.axisTop(x))
@@ -112,14 +110,14 @@ const Cosmos = ({ width }) => {
                 .data([null])
                 .join("text")
                 .call(text =>
-                text
-                    .selectAll("tspan")
-                    .data("Participation \nat 27 events".split(/\n/))
-                    .join("tspan")
-                    .attr("x", -10)
-                    .attr("y", (d, i) => `${i * 1.3}em`)
-                    .text(d => d)
-            );
+                    text
+                        .selectAll("tspan")
+                        .data("Participation \nat 27 events".split(/\n/))
+                        .join("tspan")
+                        .attr("x", -10)
+                        .attr("y", (d, i) => `${i * 1.3}em`)
+                        .text(d => d)
+                );
 
         const yAxis2 = g =>
             g.attr("transform", `translate(${margin.left},0)`)
@@ -148,20 +146,8 @@ const Cosmos = ({ width }) => {
             .domain(keys)
             .range(["#FCC117", "#FF0000"]);
 
-        // let legend = legendCircle()
-        //     .scale(
-        //     d3
-        //         .scaleSqrt()
-        //         .domain([
-        //         d3.min(data, d => d.Participants * 2),
-        //         d3.max(data, d => d.Participants * 2)
-        //         ])
-        //         .range([0, Math.sqrt(d3.max(data, d => d.Participants * 2))])
-        //     )
-        //     .tickValues([100, 400, 1000, 2000])
-        //     .tickFormat((d, i, e) =>
-        //     i === e.length - 1 ? `${d / 2} Participants` : d / 2
-        //     );
+        let legend = svg.append("g")
+                    .attr("transform", "translate(300, 60)");
 
         bubble
             .selectAll("circle")
@@ -173,6 +159,39 @@ const Cosmos = ({ width }) => {
             .attr("fill", "#608AD8")
             .attr("opacity", "50%")
             .attr("transform", `translate(0,${height - 405})`);
+
+        legend
+            .selectAll("circle")
+            .data([100, 400, 1000, 2000])
+            .join("circle")
+            .attr("r", d => Math.sqrt(d))
+            .attr("cx", Math.sqrt(2000))
+            .attr("cy", d => Math.sqrt(d))
+            .attr("fill", "none")
+            .attr("stroke", "black");
+
+        legend
+            .selectAll("line")
+            .data([100, 400, 1000, 2000])
+            .join("line")
+            .attr("x1", Math.sqrt(2000))
+            .attr("y1", d => Math.sqrt(d) * 2)
+            .attr("x2", Math.sqrt(2000) + 50)
+            .attr("y2", d => Math.sqrt(d) * 2)
+            .attr("fill", "none")
+            .attr("stroke", "black")
+            .attr("stroke-dasharray", "4, 2");
+
+        legend
+            .selectAll("text")
+            .data(["50", "200", "500", "1000 Participants"])
+            .join("text")
+            .attr("x", Math.sqrt(2000) + 50)
+            .attr("y", d => Math.sqrt(parseInt(d) * 2) * 2)
+            .attr("dx", 3)
+            .attr("dy", 4)
+            .attr("font-size", 11)
+            .text(d => d);
 
         svg.append("g").call(xAxis2);
 
@@ -244,12 +263,7 @@ const Cosmos = ({ width }) => {
             .attr("text-anchor", "left")
             .style("alignment-baseline", "middle")
             .style("font-family", "Acumin Pro");
-
-        // svg
-        //     .append("g")
-        //     .attr("transform", "translate(300, 60)")
-        //     .call(legend);
-    }, [width, bitcoinData, cosmosData, data, margin]);
+    }, [width]);
 
     return (
         <div>

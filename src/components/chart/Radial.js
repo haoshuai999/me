@@ -138,7 +138,7 @@ const Radial = ({ width }) => {
 
         svg.append("g")
             .call(legend);
-    }, [width, data, domainArray, height, outerRadius]);
+    }, [width]);
 
     return (
         <div>
