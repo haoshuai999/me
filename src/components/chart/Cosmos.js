@@ -1,16 +1,15 @@
 import React, { useState, useEffect, useRef } from "react";
 import * as d3 from "d3";
 import cosmosCSVData from "../../data/cosmos.csv";
+import bitcoinRawData from "../../data/cosmos_bitcoin.json";
+import cosmosRawData from "../../data/cosmos_cosmos.json";
 
 const Cosmos = ({ width }) => {
     const svgRef = useRef(null);
     const margin = ({ top: 50, right: 0, bottom: 100, left: 90 });
     const height = 600;
-    const cors_head = "https://observable-cors.glitch.me/";
 
     const [data, setData] = useState([]);
-    const [bitcoinData, setBitcoinData] = useState([]);
-    const [cosmosData, setCosmosData] = useState([]);
 
     const calculate_returns = data => {
         let filter = data.filter(
@@ -33,7 +32,7 @@ const Cosmos = ({ width }) => {
     };
 
     const stackData = d => {
-        d["prices"].reduce((acc, curr, index) => {
+        return d["prices"].reduce((acc, curr, index) => {
             let date = new Date(curr[0]);
             let price = parseFloat(curr[1]);
         
@@ -44,7 +43,10 @@ const Cosmos = ({ width }) => {
         
             return acc;
         }, []);
-    }
+    };
+
+    let bitcoinData = calculate_returns(stackData(bitcoinRawData));
+    let cosmosData = calculate_returns(stackData(cosmosRawData));
     
     useEffect(() => {
         d3.csv(cosmosCSVData).then(function(d) {
@@ -52,27 +54,9 @@ const Cosmos = ({ width }) => {
         }).catch(function(err) {
             throw err;
         });
-
-        d3.json(`${cors_head}https://api.coingecko.com/api/v3/coins/bitcoin/market_chart?vs_currency=usd&days=max`)
-            .then(function(d) {
-                let processedData = stackData(d);
-
-                setBitcoinData(calculate_returns(processedData));
-            }).catch(function(err) {
-                throw err;
-            });
-
-        d3.json(`${cors_head}https://api.coingecko.com/api/v3/coins/cosmos/market_chart?vs_currency=usd&days=max`)
-            .then(function(d) {
-                let processedData = stackData(d);
-                
-                setCosmosData(calculate_returns(processedData));
-            }).catch(function(err) {
-                throw err;
-            });
         
         const x = d3.scaleUtc()
-            .domain([d3.min(data, d => d.Date), d3.max(data, d => d.Date)])
+            .domain([new Date(d3.min(data, d => d.Date)), new Date(d3.max(data, d => d.Date))])
             .range([margin.left, width - 100]);
 
         const y = d3.scaleOrdinal()
@@ -86,7 +70,7 @@ const Cosmos = ({ width }) => {
         const line = d3
             .line()
             .defined(d => !isNaN(d.percentage))
-            .x(d => x(d.date))
+            .x(d => x(new Date(d.date)))
             .y(d => y2(d.percentage * 100));
 
         const xAxis = g =>
@@ -182,7 +166,7 @@ const Cosmos = ({ width }) => {
             .data(data)
             .join("circle")
             .attr("r", d => Math.sqrt(d.Participants * 2))
-            .attr("cx", d => x(d.Date))
+            .attr("cx", d => x(new Date(d.Date)))
             .attr("cy", d => y(null))
             .attr("fill", "#608AD8")
             .attr("opacity", "50%")
@@ -193,8 +177,9 @@ const Cosmos = ({ width }) => {
         svg.append("g").call(yAxis2);
 
         svg
-            .append("path")
-            .datum(bitcoinData)
+            .selectAll("path")
+            .data(bitcoinData)
+            .join("path")
             .attr("fill", "none")
             .attr("stroke", "#FCC117")
             .attr("stroke-width", 3)
@@ -203,8 +188,9 @@ const Cosmos = ({ width }) => {
             .attr("d", line);
 
         svg
-            .append("path")
-            .datum(cosmosData)
+            .selectAll("path")
+            .data(cosmosData)
+            .join("path")
             .attr("fill", "none")
             .attr("stroke", "#FF0000")
             .attr("stroke-width", 3)
