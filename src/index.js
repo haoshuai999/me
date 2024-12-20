@@ -6,7 +6,6 @@ import reportWebVitals from './reportWebVitals';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 const ARTICLE = [
-  { image: "megan.png", title: "React Personal Website", date: "Aug. 19, 2021", description: "I built a React-based website with multiple routers to show the portfolios of a journalist.", link: "https://megan-cattel.github.io/#/"},
   { image: "Image-Recognizer.jpeg", title: "Deep Learning Classification Model", date: "Nov. 19, 2019", description: "I built a simple deep learning image classifcation model in the browser to recognize the landmarks of Columbia University.", link: "https://haoshuai999.github.io/image-classifier/"},
   { image: "NLP.jpeg", title: "News Article Summarization", date: "Feb. 24, 2020", description: "I attempted to generate summaries of news articles by extracting important sentences using NLP algorithms.", link: "https://github.com/haoshuai999/News-summarization"},
   { image: "Korea.png", title: "Smart Chart: Tracking North Korea’s Missile Program", date: "Sept. 22, 2017", description: "I wrote a story about the type of North Korean missiles. A D3 chart was created to show the range of the missiles.", link: "https://www.caixinglobal.com/2017-09-22/smart-chart-tracking-north-koreas-missile-program-101147919.html"},
@@ -16,7 +15,9 @@ const ARTICLE = [
 ]
 
 const CHART = [
+  { image: "em-bank.jpeg", title: "Emerging market banks face common obstacles to long-term profitability", date: "Dec. 18, 2024", description: "I created a scrollable data story with my coworkers at Moody's to talk about the long-term profitability of banks in different countries.", link: "https://www.moodys.com/web/resources/en/us/emerging-market-bank-profitability.html"},
   { image: "hot-weather.png", title: "China Extreme Hot Days", date: "Nov. 4, 2022", description: "I created a series of data visualizations using the weather data from the NOAA. I worked with two teammates to analyze the extreme hot days in China in 2022.", link: "https://observablehq.com/@haoshuai999/china-extreme-hot-days"},
+  { image: "megan.png", title: "React Personal Website", date: "Aug. 19, 2021", description: "I built a React-based website with multiple routers to show the portfolios of a journalist.", link: "https://megan-cattel.github.io/#/"},
   { image: "treemap.png", title: "Automated Chart Templates", date: "Aug. 12, 2020", description: "I built 17 automated chart templates for journalists to make customizable charts on Observable so far.", link: "https://docs.google.com/document/d/1b64Uw2dEoVK-U7xVlDwHdeNiCrhuWth_oegkTPIjslY/edit#"},
   { image: "Slavery.jpeg", title: "Slavery’s Explosive Growth, in Charts: How ’20 and odd’ Became Millions", date: "Aug. 28, 2019", description: "The largest project I worked on at USA TODAY Network is about the history of slavery in the US since 1619.", link: "https://www.usatoday.com/pages/interactives/1619-african-slavery-history-maps-routes-interactive-graphic/"},
   { image: "final-project.jpeg", title: "Evolution of Terrorism", date: "Sept. 26, 2019", description: "I explored why and how terrorism evolved over the years by analyzing 180,000 rows of data using D3.js and scrollama.js.", link: "https://haoshuai999.github.io"},
