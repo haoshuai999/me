@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/me/static/css/main.7eb15c37.chunk.css",
-    "main.js": "/me/static/js/main.326a594d.chunk.js",
-    "main.js.map": "/me/static/js/main.326a594d.chunk.js.map",
+    "main.js": "/me/static/js/main.00ada082.chunk.js",
+    "main.js.map": "/me/static/js/main.00ada082.chunk.js.map",
     "runtime-main.js": "/me/static/js/runtime-main.f551e6f4.js",
     "runtime-main.js.map": "/me/static/js/runtime-main.f551e6f4.js.map",
     "static/css/2.8ea71ad7.chunk.css": "/me/static/css/2.8ea71ad7.chunk.css",
@@ -34,7 +34,7 @@
     "static/media/NLP.jpeg": "/me/static/media/NLP.672234e1.jpeg",
     "static/media/Poland-abortion-cost.jpeg": "/me/static/media/Poland-abortion-cost.1e41e595.jpeg",
     "static/media/Profile.jpeg": "/me/static/media/Profile.c5ace7dd.jpeg",
-    "static/media/Resume of Shuai Hao.3323e89e.pdf": "/me/static/media/Resume of Shuai Hao.3323e89e.pdf",
+    "static/media/Resume of Shuai Hao.fe3032b4.pdf": "/me/static/media/Resume of Shuai Hao.fe3032b4.pdf",
     "static/media/Slavery.jpeg": "/me/static/media/Slavery.a73facde.jpeg",
     "static/media/Sleep-Deprivation1.jpeg": "/me/static/media/Sleep-Deprivation1.b43c251c.jpeg",
     "static/media/Turkey.jpeg": "/me/static/media/Turkey.c8f6c658.jpeg",
@@ -66,6 +66,6 @@
     "static/css/2.8ea71ad7.chunk.css",
     "static/js/2.43bded0a.chunk.js",
     "static/css/main.7eb15c37.chunk.css",
-    "static/js/main.326a594d.chunk.js"
+    "static/js/main.00ada082.chunk.js"
   ]
 }
