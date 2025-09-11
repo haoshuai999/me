@@ -153,7 +153,7 @@ function App(props) {
           </Row>
         </Tab>
       </Tabs>
-      <Row className="bg-light mt-2 mb-1 p-3 text-center border border-secondary rounded">
+      <Row className="footer-color mt-2 mb-1 p-3 text-center rounded">
         <Col>
           <footer>
             <p>Designed using React and Bootstrap</p>

@@ -7,7 +7,7 @@ import resume from "../../static/Resume of Shuai Hao.pdf";
 export default function SimpleNav() {
     return (
         <>
-            <Navbar bg="light" className="border border-secondary rounded" expand="lg">
+            <Navbar className="nav-color p-2 rounded" expand="lg">
                 <Container>
                     <Navbar.Brand href="#home">Shuai Hao</Navbar.Brand>
                     <Navbar.Toggle aria-controls="basic-navbar-nav" />

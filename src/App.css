@@ -7,6 +7,10 @@
     margin-bottom: auto;
 }
 
+.nav-color, .footer-color {
+    background-color: rgba(33, 37, 41, 0.03);
+}
+
 .sticky {
     background-color: white;
     position: sticky;
