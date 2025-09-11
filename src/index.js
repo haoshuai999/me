@@ -15,7 +15,8 @@ const ARTICLE = [
 ]
 
 const CHART = [
-  { image: "em-bank.jpeg", title: "Emerging market banks face common obstacles to long-term profitability", date: "Dec. 18, 2024", description: "I created a scrollable data story with my coworkers at Moody's to talk about the long-term profitability of banks in different countries.", link: "https://www.moodys.com/web/resources/en/us/emerging-market-bank-profitability.html"},
+  { image: "tariff-tracker.jpeg", title: "Moody’s Tariff Tracker", date: "Aug. 18, 2025", description: "I created an interactive data project that tracks the latest updates to US trade policies.", link: "https://www.moodys.com/web/resources/en/us/insights/data-stories/tariff-tracker-2025.html"},
+  { image: "em-bank.jpeg", title: "Emerging market banks face common obstacles to long-term profitability", date: "Dec. 18, 2024", description: "I created a scrollable data story at Moody's to talk about the long-term profitability of banks in different countries.", link: "https://www.moodys.com/web/resources/en/us/emerging-market-bank-profitability.html"},
   { image: "hot-weather.png", title: "China Extreme Hot Days", date: "Nov. 4, 2022", description: "I created a series of data visualizations using the weather data from the NOAA. I worked with two teammates to analyze the extreme hot days in China in 2022.", link: "https://observablehq.com/@haoshuai999/china-extreme-hot-days"},
   { image: "megan.png", title: "React Personal Website", date: "Aug. 19, 2021", description: "I built a React-based website with multiple routers to show the portfolios of a journalist.", link: "https://megan-cattel.github.io/#/"},
   { image: "treemap.png", title: "Automated Chart Templates", date: "Aug. 12, 2020", description: "I built 17 automated chart templates for journalists to make customizable charts on Observable so far.", link: "https://docs.google.com/document/d/1b64Uw2dEoVK-U7xVlDwHdeNiCrhuWth_oegkTPIjslY/edit#"},

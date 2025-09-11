@@ -1,4 +1,3 @@
-import React from 'react';
 import Card from 'react-bootstrap/Card';
 
 export default function SimpleCard(props) {
@@ -11,7 +10,7 @@ export default function SimpleCard(props) {
             <Card.Text>
             {props.description}
             </Card.Text>
-            <Card.Link href={props.link}>More details</Card.Link>
+            <Card.Link href={props.link} target='_blank'>More details</Card.Link>
         </Card.Body>
         </Card>
     )

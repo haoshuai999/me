@@ -19,10 +19,6 @@
     z-index: 100;
 }
 
-.carousel-control-next-icon, .carousel-control-prev-icon {
-    background-color: black !important;
-}
-
 .card-img-top {
     display: block;
     object-fit: contain;
