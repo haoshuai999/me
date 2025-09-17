@@ -1,8 +1,8 @@
-import React, {useState, useRef, useEffect} from "react";
+import React, {useRef, useEffect} from "react";
 import {Runtime, Inspector} from "@observablehq/runtime";
-import notebook from "../../fb5ed6161a8a33b8/fb5ed6161a8a33b8@601";
+import notebook from "fb5ed6161a8a33b8";
 
-function Candidate({ width }) {
+function Candidate() {
   const viewofProfileRef = useRef();
   const title1Ref = useRef();
   const barkeyRef = useRef();
@@ -10,11 +10,10 @@ function Candidate({ width }) {
   const title2Ref = useRef();
   const viewofYearRef = useRef();
   const datavizRef = useRef();
-  const [module, setModule] = useState();
 
   useEffect(() => {
     const runtime = new Runtime();
-    const main = runtime.module(notebook, name => {
+    runtime.module(notebook, name => {
       if (name === "viewof profile") return new Inspector(viewofProfileRef.current);
       if (name === "title1") return new Inspector(title1Ref.current);
       if (name === "barkey") return new Inspector(barkeyRef.current);
@@ -24,18 +23,8 @@ function Candidate({ width }) {
       if (name === "dataviz") return new Inspector(datavizRef.current);
       return ["series","y","yAxis","barcolor","x","xAxis"].includes(name);
     });
-    setModule(main);
-    return () => {
-      setModule(undefined);
-      runtime.dispose()
-    };
+    return () => runtime.dispose();
   }, []);
-
-  useEffect(() => {
-    if (module !== undefined) {
-      module.redefine("width", width);
-    }
-  }, [width, module]);
 
   return (
     <>
