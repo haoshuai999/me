@@ -4,9 +4,9 @@ import radialData from "../../data/radial.csv";
 
 const Radial = ({ width }) => {
     const svgRef = useRef(null);
-    const height = width;
-    const innerRadius = 180;
-    const outerRadius = Math.min(width, height) / 2 - 50;
+    const height = width > 500 ? width : width + 100;
+    const innerRadius = width > 500 ? 180 : 110;
+    const outerRadius = width > 500 ? Math.min(width, height) / 2 - 50 : Math.min(width, height) / 2;
 
     const [data, setData] = useState([]);
     const [domainArray, setDomainArray] = useState([]);
@@ -71,7 +71,7 @@ const Radial = ({ width }) => {
                     .attr("dy", "-1em")
                     .text("Total Assets on Coinbase Increased Nearly 150% in 2021Q1")
                     .style("font-weight", "bold")
-                    .style("font-size", "30px")
+                    .style("font-size", width > 500 ? 30 : 13)
             )
             .call((g) =>
                 g.selectAll("g")
@@ -116,7 +116,7 @@ const Radial = ({ width }) => {
             .select(svgRef.current)
             .attr("viewBox", `${-width / 2} ${-height / 2} ${width} ${height}`)
             .attr("font-family", "Acumin Pro")
-            .attr("font-size", 24);
+            .attr("font-size", width > 500 ? 24 : 14);
         
         svg.selectAll("*").remove();
 

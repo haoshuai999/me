@@ -7,7 +7,7 @@ const Congress = ({ width }) => {
     const margin = ({top: 50, right: 10, bottom: 30, left: 10});
     const height = Math.min(width, 800);
     const radius = Math.min(width, height) / 2;
-    const labelHeight = height / 50;
+    const labelHeight = height / 40;
 
     const [data, setData] = useState([]);
     const [option, setOption] = useState("Senate");
@@ -119,7 +119,7 @@ const Congress = ({ width }) => {
             (d, i) => labelHeight * i * 1.8 + labelHeight / 1.1 + height * 0.8
             )
             .style('font-size', `${labelHeight}px`);
-    }, [width]);
+    }, [width, option]);
 
     return (
         <div>

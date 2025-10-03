@@ -9,7 +9,7 @@ const Tree = ({ width }) => {
         const tree = (data) => {
             const treeRoot = d3.hierarchy(data);
             treeRoot.dx = 50;
-            treeRoot.dy = width / (treeRoot.height + 2);
+            treeRoot.dy = width > 500 ? width / (treeRoot.height + 2) : width / (treeRoot.height + 4);
             return d3.tree().nodeSize([treeRoot.dx, treeRoot.dy])(treeRoot);
         }
 
@@ -24,7 +24,7 @@ const Tree = ({ width }) => {
 
         const svg = d3
             .select(svgRef.current)
-            .attr("viewBox", [-150, 0, width, x1 - x0 + root.dx * 2])
+            .attr("viewBox", [width > 500 ? -150 : -100, 0, width, x1 - x0 + root.dx * 2])
             .style("background-color", "white");
 
         svg.selectAll("*").remove();
@@ -32,7 +32,7 @@ const Tree = ({ width }) => {
         const g = svg
             .append("g")
             .attr("font-family", "Acumin Pro")
-            .attr("font-size", 25)
+            .attr("font-size", width > 500 ? 25 : 14)
             .attr("transform", `translate(${root.dy / 3},${root.dx - x0})`);
 
         g.append("g")
