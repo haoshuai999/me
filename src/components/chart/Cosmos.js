@@ -6,7 +6,7 @@ import cosmosRawData from "../../data/cosmos_cosmos.json";
 
 const Cosmos = ({ width }) => {
     const svgRef = useRef(null);
-    const margin = ({ top: 50, right: 0, bottom: 100, left: 90 });
+    const margin = ({ top: 50, right: 0, bottom: width > 500 ? 100 : 150, left: width > 500 ? 90 : 45 });
     const height = 600;
 
     const [data, setData] = useState([]);
@@ -57,7 +57,7 @@ const Cosmos = ({ width }) => {
         
         const x = d3.scaleUtc()
             .domain([new Date(d3.min(data, d => d.Date)), new Date(d3.max(data, d => d.Date))])
-            .range([margin.left, width - 100]);
+            .range([margin.left, width - 60]);
 
         const y = d3.scaleOrdinal()
             .domain([null])
@@ -100,17 +100,19 @@ const Cosmos = ({ width }) => {
                 .style("font-size", 14)
                 .attr("transform", `translate(${margin.left},${height - 405})`)
                 .call(g => {
-                g.select(".domain").remove();
-                g.selectAll(".tick")
-                    .append("line")
-                    .attr("stroke", "#ccc")
-                    .attr("x2", width - margin.left);
+                    g.select(".domain").remove();
+                    
+                    g.selectAll(".tick")
+                        .append("line")
+                        .attr("stroke", "#ccc")
+                        .attr("x2", width - margin.left - 25);
                 })
                 .selectAll("text")
                 .data([null])
                 .join("text")
                 .call(text =>
                     text
+                        .attr("transform", width > 500 ? "translate(0, 0)" : `translate(${margin.left}, -60)`)
                         .selectAll("tspan")
                         .data("Participation \nat 27 events".split(/\n/))
                         .join("tspan")
@@ -147,7 +149,7 @@ const Cosmos = ({ width }) => {
             .range(["#FCC117", "#FF0000"]);
 
         let legend = svg.append("g")
-                    .attr("transform", "translate(300, 60)");
+                    .attr("transform", width > 500 ? "translate(300, 60)" :  "translate(70, 140)");
 
         bubble
             .selectAll("circle")
@@ -202,7 +204,7 @@ const Cosmos = ({ width }) => {
             .datum(bitcoinData)
             .attr("fill", "none")
             .attr("stroke", "#FCC117")
-            .attr("stroke-width", 3)
+            .attr("stroke-width", 2)
             .attr("stroke-linejoin", "round")
             .attr("stroke-linecap", "round")
             .attr("d", line);
@@ -212,27 +214,51 @@ const Cosmos = ({ width }) => {
             .datum(cosmosData)
             .attr("fill", "none")
             .attr("stroke", "#FF0000")
-            .attr("stroke-width", 3)
+            .attr("stroke-width", 2)
             .attr("stroke-linejoin", "round")
             .attr("stroke-linecap", "round")
             .attr("d", line);
 
-        svg
-            .append("text")
-            .attr("x", width / 2)
-            .attr("y", margin.top - 20)
-            .attr("text-anchor", "middle")
-            .style("font-size", 26)
-            .style("font-family", "Acumin Pro")
-            .style("font-weight", "bold")
-            .text("Cosmos (ATOM) Price Growth and Events Held by Cosmos in India");
+        if (width > 500) {
+            svg
+                .append("text")
+                .attr("x", width / 2)
+                .attr("y", margin.top - 20)
+                .attr("text-anchor", "middle")
+                .style("font-size", 26)
+                .style("font-family", "Acumin Pro")
+                .style("font-weight", "bold")
+                .text("Cosmos (ATOM) Price Growth and Events Held by Cosmos in India");
+        } else {
+            svg
+                .append("text")
+                .attr("x", width / 2 - 25)
+                .attr("y", margin.top - 25)
+                .attr("text-anchor", "middle")
+                .style("font-size", 14)
+                .style("font-family", "Acumin Pro")
+                .style("font-weight", "bold")
+                .text("Cosmos (ATOM) Price Growth and");
+
+            svg
+                .append("text")
+                .attr("x", width / 2 - 25)
+                .attr("y", margin.top - 5)
+                .attr("text-anchor", "middle")
+                .style("font-size", 14)
+                .style("font-family", "Acumin Pro")
+                .style("font-weight", "bold")
+                .text("Events Held by Cosmos in India");
+        }
+
 
         svg
             .selectAll("mylines")
             .data(keys)
             .enter()
             .append("line")
-            .style("stroke-width", 3)
+            .attr("transform", width > 500 ? "translate(0, 0)" : "translate(-30, -15)")
+            .style("stroke-width", 2)
             .attr("x1", 100)
             .attr("y1", function(d, i) {
                 return 100 + i * 25;
@@ -250,6 +276,7 @@ const Cosmos = ({ width }) => {
             .data(keys)
             .enter()
             .append("text")
+            .attr("transform", width > 500 ? "translate(0, 0)" : "translate(-30, -15)")
             .attr("x", 160)
             .attr("y", function(d, i) {
                 return 100 + i * 25;
@@ -261,6 +288,7 @@ const Cosmos = ({ width }) => {
                 return d;
             })
             .attr("text-anchor", "left")
+            .attr("font-size", width > 500 ? 16 : 14)
             .style("alignment-baseline", "middle")
             .style("font-family", "Acumin Pro");
     }, [width]);
