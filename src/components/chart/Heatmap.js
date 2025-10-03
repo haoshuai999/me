@@ -4,7 +4,7 @@ import heatmapData from "../../data/heatmap.csv";
 
 const Heatmap = ({ width }) => {
     const svgRef = useRef(null);
-    const margin = ({ top: 40, right: 50, bottom: 70, left: 100 });
+    const margin = ({ top: 40, right: 50, bottom: 70, left: width > 500 ? 100 : 65 });
 
     const Timezone = ["Asia AM", "Asia PM", "NYC AM", "NYC PM"];
     const months = d3.range(6,10);
@@ -59,7 +59,8 @@ const Heatmap = ({ width }) => {
                     .ticks(width / 80)
                     .tickSize(legendBarHeight)    
                     .tickFormat(d3.format(".0%")))
-                    .style("font-size", 20)
+                    .style("font-size", width > 500 ? 20 : 14)
+                    .attr("text-anchor", width > 500 ? "middle" : "end")
                 .select(".domain")
                 .remove()
         };
@@ -101,7 +102,7 @@ const Heatmap = ({ width }) => {
             .attr("x", d => d.Month * gridSize + gridSize/2)
             .attr("y", d => d.Timezone * gridSize + gridSize/2)
             .style("text-anchor", "middle")
-            .style("font-size", 20)
+            .style("font-size", width > 500 ? 20 : 14)
             .attr("dy", ".35em")
             .text(d => formatValue(d.Value));
         

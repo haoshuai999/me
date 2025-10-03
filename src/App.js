@@ -59,7 +59,7 @@ function App(props) {
     { interactive: <Cosmos width = {width > 500 ? width : width - 20}/>, title: "The Growth of Cosmos India", description: "Cosmos aims to be the internet of blockchain. Cosmos's token ATOM and its Indian branch grows fast in 2020.", link: "https://observablehq.com/d/51fbdbc746a1de7e", date: "Oct. 1 2020"},
     { interactive: <Heatmap width = {width}/>, title: "BTC Returns Heatmap", description: "Bitcoin performs better on US trading hours than Asian trading hours.", link: "https://observablehq.com/@shuaihaofzny/heatmap-example", date: "Sept. 30 2020"},
     { interactive: <Radial width = {width}/>, title: "Coinbase Growth", description: "Total assets on Coinbase increased nearly 150% in 2021Q1.", link: "https://observablehq.com/d/684a54bcf8262fbd", date: "Apr. 3 2021"},
-    { interactive: <Congress />, title: "United States Congress", description: "I use some dummy data to make this half donut chart. This can also be used for US Congress related charts", link: "https://observablehq.com/d/7c527de234abd676", date: "Jan. 7 2021"},
+    { interactive: <Congress width = {width} />, title: "United States Congress", description: "I use some dummy data to make this half donut chart. This can also be used for US Congress related charts", link: "https://observablehq.com/d/7c527de234abd676", date: "Jan. 7 2021"},
     { interactive: <Tree width = {width}/>, title: "Crypto Family Tree", description: "Many crypto assets are related to each other through forking.", link: "https://observablehq.com/d/6a0e7e787418caa2", date: "Mar. 21 2021"}
   ];
 
