@@ -1,7 +1,7 @@
 {
   "homepage": "http://haoshuai999.github.io/me",
   "name": "shuai-website",
-  "version": "3.0.0",
+  "version": "3.1.0",
   "private": true,
   "dependencies": {
     "@observablehq/runtime": "^5.9.9",
@@ -9,7 +9,6 @@
     "bootstrap": "^5.3.8",
     "d3": "^7.8.5",
     "fb5ed6161a8a33b8": "https://api.observablehq.com/d/fb5ed6161a8a33b8@613.tgz?v=3",
-    "npm": "^7.15.1",
     "react": "^18.0.0",
     "react-bootstrap": "^2.10.10",
     "react-dom": "^18.0.0",
