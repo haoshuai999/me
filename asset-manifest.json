@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/me/static/css/main.d29d8cfb.css",
-    "main.js": "/me/static/js/main.f12c5003.js",
+    "main.js": "/me/static/js/main.b8076d6a.js",
     "static/js/488.caa0cc86.chunk.js": "/me/static/js/488.caa0cc86.chunk.js",
     "static/media/Election.jpg": "/me/static/media/Election.713d55f0c8b39836d69a.jpg",
     "static/media/woman.png": "/me/static/media/woman.2d3ca202a6aaa829182b.png",
@@ -45,11 +45,11 @@
     "static/media/heatmap.csv": "/me/static/media/heatmap.11c21d85e9aaec02b648.csv",
     "static/media/congress.csv": "/me/static/media/congress.70652970a19ad5104bbb.csv",
     "main.d29d8cfb.css.map": "/me/static/css/main.d29d8cfb.css.map",
-    "main.f12c5003.js.map": "/me/static/js/main.f12c5003.js.map",
+    "main.b8076d6a.js.map": "/me/static/js/main.b8076d6a.js.map",
     "488.caa0cc86.chunk.js.map": "/me/static/js/488.caa0cc86.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.d29d8cfb.css",
-    "static/js/main.f12c5003.js"
+    "static/js/main.b8076d6a.js"
   ]
 }
