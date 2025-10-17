@@ -1,3 +1,22 @@
+#myCanvas {
+    position: absolute;
+    z-index: 0;
+}
+
+.canvas-container {
+    height: 300px;
+}
+
+.canvas-container div, .canvas-container button, .canvas-container a {
+    z-index: 1;
+}
+
+@media (width <= 500px) {
+    .canvas-container {
+        height: 100%;
+    }
+}
+
 .full-height {
     height: 100vh;
 }
