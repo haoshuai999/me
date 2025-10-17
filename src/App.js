@@ -22,6 +22,7 @@ import Tab from 'react-bootstrap/Tab';
 const useContainerDimensions = myRef => {
   const getDimensions = () => ({
     width: (myRef.current.offsetWidth) < 1000 ? myRef.current.offsetWidth : 1000,
+    fullWidth: myRef.current.offsetWidth - 24,
     height: myRef.current.offsetHeight
   })
 
@@ -51,7 +52,7 @@ const useContainerDimensions = myRef => {
 function App(props) {
   const ref = useRef(null);
   const componentRef = useRef(null);
-  const { width, height } = useContainerDimensions(componentRef);
+  const { width, fullWidth, height } = useContainerDimensions(componentRef);
 
   const interactives = [
     { interactive: <Chinamap width = {width} />, title: "Chinese NPC Deputy Map", description: "Use react and D3 to show the population and the number of NPC deputies of each Chinese province.", link: "https://haoshuai999.github.io/china-data-map/", date: "Aug. 8 2021"},
@@ -93,7 +94,7 @@ function App(props) {
 
   const InteractiveList = interactives.map((interact, index) => (
     <Row className="pt-2 pb-2" key={`interactive-${index}`}>
-      <Col ref={componentRef}>
+      <Col>
         <Article
           id={`interactive-${index}`}
           title={interact.title}
@@ -118,9 +119,9 @@ function App(props) {
 
   return (
     <Container fluid="md">
-      <Row>
+      <Row ref={componentRef}>
         <Col>
-          <SimpleNav />
+          <SimpleNav width={fullWidth} />
         </Col>
       </Row>
       <Intro width={width} handleClick={handleClick}/>
