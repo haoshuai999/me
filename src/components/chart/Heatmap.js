@@ -17,7 +17,8 @@ const Heatmap = ({ width }) => {
     const formatValue = d3.format(".2%");
 
     const [data, setData] = useState([]);
-    
+
+    // Separate useEffect for data loading (runs once)
     useEffect(() => {
         d3.csv(heatmapData).then(function(d) {
             d.forEach((row, index) => {
@@ -31,6 +32,10 @@ const Heatmap = ({ width }) => {
         }).catch(function(err) {
             throw err;
         });
+    }, [data]);
+    
+    useEffect(() => {
+        if (!data.length) return;
 
         const color = d3.scaleLinear()
             .domain([d3.min(data, d => d.Value), 0, d3.max(data, d => d.Value)])
@@ -66,7 +71,7 @@ const Heatmap = ({ width }) => {
         };
 
         const svg = d3.select(svgRef.current)
-            .attr("width", width)
+            .attr("width", width - 32)
             .attr("height", h)
             .classed("crashes-heatmap", true);
         
@@ -128,7 +133,7 @@ const Heatmap = ({ width }) => {
         
         g.append("g")
             .call(legend);
-    }, [width]);
+    }, [width, data]);
 
     return (
         <div>

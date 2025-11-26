@@ -10,7 +10,8 @@ const Radial = ({ width }) => {
 
     const [data, setData] = useState([]);
     const [domainArray, setDomainArray] = useState([]);
-    
+
+    // Separate useEffect for data loading (runs once)
     useEffect(() => {
         d3.csv(radialData).then(function(d) {
             d.forEach((row) => {
@@ -23,6 +24,10 @@ const Radial = ({ width }) => {
         }).catch(function(err) {
             throw err;
         });
+    }, [data]);
+    
+    useEffect(() => {
+        if (!data.length) return;
 
         const x = d3.scaleBand()
             .domain(data.map(d => d.Quarter))
@@ -138,7 +143,7 @@ const Radial = ({ width }) => {
 
         svg.append("g")
             .call(legend);
-    }, [width]);
+    }, [width, data]);
 
     return (
         <div>

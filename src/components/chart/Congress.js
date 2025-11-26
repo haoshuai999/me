@@ -15,13 +15,18 @@ const Congress = ({ width }) => {
     const onOptionChange = e => {
         setOption(e.target.value);
     };
-    
+
+    // Separate useEffect for data loading (runs once)
     useEffect(() => {
         d3.csv(congressData).then(function(d) {
             setData(d);
         }).catch(function(err) {
             throw err;
         });
+    }, []); // Empty dependency array - runs only once
+    
+    useEffect(() => {
+        if (!data.length) return;
 
         const color = d3.scaleOrdinal()
             .domain(data.map(d => d.Stance))
@@ -119,7 +124,7 @@ const Congress = ({ width }) => {
             (d, i) => labelHeight * i * 1.8 + labelHeight / 1.1 + height * 0.8
             )
             .style('font-size', `${labelHeight}px`);
-    }, [width, option]);
+    }, [width, data, option]);
 
     return (
         <div>

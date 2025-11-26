@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef, useMemo } from "react";
 import * as d3 from "d3";
 import cosmosCSVData from "../../data/cosmos.csv";
 import bitcoinRawData from "../../data/cosmos_bitcoin.json";
@@ -11,7 +11,8 @@ const Cosmos = ({ width }) => {
 
     const [data, setData] = useState([]);
 
-    const calculate_returns = data => {
+    // Move these functions outside or memoize them
+    const calculate_returns = useMemo(() => data => {
         let filter = data.filter(
           d => d.date >= new Date("2019-11-01") && d.date <= new Date("2020-09-01")
         );
@@ -29,9 +30,9 @@ const Cosmos = ({ width }) => {
           }
         });
         return returns;
-    };
+    }, []);
 
-    const stackData = d => {
+    const stackData = useMemo(() => d => {
         return d["prices"].reduce((acc, curr, index) => {
             let date = new Date(curr[0]);
             let price = parseFloat(curr[1]);
@@ -43,17 +44,25 @@ const Cosmos = ({ width }) => {
         
             return acc;
         }, []);
-    };
+    }, []);
 
-    let bitcoinData = calculate_returns(stackData(bitcoinRawData));
-    let cosmosData = calculate_returns(stackData(cosmosRawData));
+    // Memoize the calculated data
+    const bitcoinData = useMemo(() => calculate_returns(stackData(bitcoinRawData)), [calculate_returns, stackData]);
+    const cosmosData = useMemo(() => calculate_returns(stackData(cosmosRawData)), [calculate_returns, stackData]);
     
+    // Separate useEffect for data loading (runs once)
     useEffect(() => {
         d3.csv(cosmosCSVData).then(function(d) {
             setData(d);
         }).catch(function(err) {
             throw err;
         });
+    }, []); // Empty dependency array - runs only once
+
+    useEffect(() => {
+        if (!data.length) return; // Don't render if no data
+        if (!bitcoinData.length) return; // Don't render if no bitcoin data
+        if (!cosmosData.length) return; // Don't render if no cosmos data
         
         const x = d3.scaleUtc()
             .domain([new Date(d3.min(data, d => d.Date)), new Date(d3.max(data, d => d.Date))])
@@ -84,14 +93,6 @@ const Cosmos = ({ width }) => {
                 .attr("transform", `translate(0,${height - margin.bottom})`)
                 .call(g => {
                     g.select(".domain").remove();
-                });
-
-        const xAxis2 = g =>
-            g.call(d3.axisTop(x))
-                .style("font-family", "Acumin Pro")
-                .style("font-size", 14)
-                .call(g => {
-                  g.select(".domain").remove();
                 });
         
         const yAxis = g =>
@@ -130,7 +131,7 @@ const Cosmos = ({ width }) => {
 
         const svg = d3
             .select(svgRef.current)
-            .attr("width", width)
+            .attr("width", width - 32)
             .attr("height", height)
             .attr("viewBox", [0, 0, width, height]);
 
@@ -149,7 +150,7 @@ const Cosmos = ({ width }) => {
             .range(["#FCC117", "#FF0000"]);
 
         let legend = svg.append("g")
-                    .attr("transform", width > 500 ? "translate(300, 60)" :  "translate(70, 140)");
+            .attr("transform", width > 500 ? "translate(300, 60)" :  "translate(70, 140)");
 
         bubble
             .selectAll("circle")
@@ -194,8 +195,6 @@ const Cosmos = ({ width }) => {
             .attr("dy", 4)
             .attr("font-size", 11)
             .text(d => d);
-
-        svg.append("g").call(xAxis2);
 
         svg.append("g").call(yAxis2);
 
@@ -291,7 +290,7 @@ const Cosmos = ({ width }) => {
             .attr("font-size", width > 500 ? 16 : 14)
             .style("alignment-baseline", "middle")
             .style("font-family", "Acumin Pro");
-    }, [width]);
+    }, [width, data, bitcoinData, cosmosData]);
 
     return (
         <div>

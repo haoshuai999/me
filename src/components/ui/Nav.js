@@ -32,7 +32,6 @@ export default function SimpleNav({width}) {
                 .on("tick", ticked);
 
             function pointermoved(event) {
-                console.log("called");
                 const [x, y] = d3.pointer(event);
                 nodes[0].fx = x - width / 2;
                 nodes[0].fy = y - height / 2;
