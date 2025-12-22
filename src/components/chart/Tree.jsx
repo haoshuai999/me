@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from "react";
 import * as d3 from "d3";
-import data from "../../data/family_tree.json";
+import data from "../../json/family_tree.json";
 
 const Tree = ({ width }) => {
     const svgRef = useRef(null);

@@ -1,6 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
 import * as d3 from "d3";
-import heatmapData from "../../data/heatmap.csv";
 
 const Heatmap = ({ width }) => {
     const svgRef = useRef(null);
@@ -20,7 +19,7 @@ const Heatmap = ({ width }) => {
 
     // Separate useEffect for data loading (runs once)
     useEffect(() => {
-        d3.csv(heatmapData).then(function(d) {
+        d3.csv('/data/heatmap.csv').then(function(d) {
             d.forEach((row, index) => {
                 d[index] = {
                     Timezone: parseInt(row.Timezone),
