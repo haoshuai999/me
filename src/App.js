@@ -52,7 +52,7 @@ const useContainerDimensions = myRef => {
 function App(props) {
   const ref = useRef(null);
   const componentRef = useRef(null);
-  const { width, fullWidth, height } = useContainerDimensions(componentRef);
+  const { width, fullWidth } = useContainerDimensions(componentRef);
 
   const interactives = [
     { interactive: <Chinamap width = {width} />, title: "Chinese NPC Deputy Map", description: "Use react and D3 to show the population and the number of NPC deputies of each Chinese province.", link: "https://haoshuai999.github.io/china-data-map/", date: "Aug. 8 2021"},
@@ -64,10 +64,10 @@ function App(props) {
     { interactive: <Tree width = {width}/>, title: "Crypto Family Tree", description: "Many crypto assets are related to each other through forking.", link: "https://observablehq.com/d/6a0e7e787418caa2", date: "Mar. 21 2021"}
   ];
 
-  const ArticleList = props.articles.map((article, index) => (
-    <Col md={6} sm={12} className="p-2" key={`article-${index}`}>
+  const ProjectList = props.articles.map((article, index) => (
+    <Col md={6} sm={12} className="p-2" key={`project-${index}`}>
       <SimpleCard 
-        id = {`article-${index}`}
+        id = {`project-${index}`}
         image = {article.image}
         title = {article.title}
         date = {article.date}
@@ -78,10 +78,10 @@ function App(props) {
     )
   );
 
-  const ChartList = props.charts.map((chart, index) => (
-    <Col md={6} sm={12} className="p-2" key={`chart-${index}`}>
+  const StoryList = props.charts.map((chart, index) => (
+    <Col md={6} sm={12} className="p-2" key={`story-${index}`}>
       <SimpleCard 
-        id = {`chart-${index}`}
+        id = {`story-${index}`}
         image = {chart.image}
         title = {chart.title}
         date = {chart.date}
@@ -128,25 +128,25 @@ function App(props) {
       <div ref={ref}></div>
       <Tabs 
         className="justify-content-center sticky" 
-        defaultActiveKey="Charts"
+        defaultActiveKey="Data Stories"
         id="uncontrolled-tab-example"
       >
-        <Tab eventKey="Charts" title="Charts">
+        <Tab eventKey="Data Stories" title="Data Stories">
+          <Row className="p-2">
+            {StoryList}
+          </Row>
           <Row className="p-2">
             <Col>
               <Slide data={props.slides}/>
             </Col>
           </Row>
-          <Row className="p-2">
-            {ChartList}
-          </Row>
         </Tab>
         <Tab eventKey="Interactives" title="Interactives">
           {InteractiveList}
         </Tab>
-        <Tab eventKey="Articles" title="Articles">
+        <Tab eventKey="Projects" title="Projects">
           <Row className="p-2">
-            {ArticleList}
+            {ProjectList}
           </Row>
         </Tab>
       </Tabs>
