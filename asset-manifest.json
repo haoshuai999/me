@@ -1,12 +1,13 @@
 {
   "files": {
     "main.css": "/me/static/css/main.3f5a16f4.css",
-    "main.js": "/me/static/js/main.328b6bb7.js",
+    "main.js": "/me/static/js/main.d5a4f62a.js",
     "static/js/488.caa0cc86.chunk.js": "/me/static/js/488.caa0cc86.chunk.js",
     "static/media/Election.jpg": "/me/static/media/Election.713d55f0c8b39836d69a.jpg",
     "static/media/woman.png": "/me/static/media/woman.2d3ca202a6aaa829182b.png",
     "static/media/Figma.png": "/me/static/media/Figma.4338cc4540dfbf156d56.png",
     "static/media/json": "/me/static/media/c4acaa2e22e5600d22c6c4a8f337dca860ad37d38b3bfa9654d4514b5eb0dade6eb0ad2c845c99330129e86e9ec1938580f3a2484a5e51f90ccab9bee76dd7e2.4c25a8fcc20cdc8b6ccb.json",
+    "static/media/Chart Generator.png": "/me/static/media/Chart Generator.4aa221acea0a540b5cbf.png",
     "static/media/India.jpeg": "/me/static/media/India.9f1f7c68979aaa1b1591.jpeg",
     "static/media/Iran.jpeg": "/me/static/media/Iran.87d5721779c57c32415b.jpeg",
     "static/media/astronomy.png": "/me/static/media/astronomy.9d04e7c87a2e685bea56.png",
@@ -45,11 +46,11 @@
     "static/media/heatmap.csv": "/me/static/media/heatmap.11c21d85e9aaec02b648.csv",
     "static/media/congress.csv": "/me/static/media/congress.70652970a19ad5104bbb.csv",
     "main.3f5a16f4.css.map": "/me/static/css/main.3f5a16f4.css.map",
-    "main.328b6bb7.js.map": "/me/static/js/main.328b6bb7.js.map",
+    "main.d5a4f62a.js.map": "/me/static/js/main.d5a4f62a.js.map",
     "488.caa0cc86.chunk.js.map": "/me/static/js/488.caa0cc86.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.3f5a16f4.css",
-    "static/js/main.328b6bb7.js"
+    "static/js/main.d5a4f62a.js"
   ]
 }
