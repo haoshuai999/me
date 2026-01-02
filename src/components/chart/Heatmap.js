@@ -32,7 +32,7 @@ const Heatmap = ({ width }) => {
         }).catch(function(err) {
             throw err;
         });
-    }, [data]);
+    }, []);
     
     useEffect(() => {
         if (!data.length) return;
