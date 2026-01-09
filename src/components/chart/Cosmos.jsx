@@ -51,7 +51,7 @@ const Cosmos = ({ width }) => {
     
     // Separate useEffect for data loading (runs once)
     useEffect(() => {
-        d3.csv('/data/cosmos.csv').then(function(d) {
+        d3.csv('./data/cosmos.csv').then(function(d) {
             setData(d);
         }).catch(function(err) {
             throw err;

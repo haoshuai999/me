@@ -7,7 +7,7 @@ export default function Slide(props) {
                 <Carousel.Item id={`slide-${index}`} key={`slide-${index}`}>
                     <img
                         className="d-block w-100"
-                        src={'/images/' + slide.image}
+                        src={'./images/' + slide.image}
                         alt={`slide-${index}`}
                     />
                 </Carousel.Item>

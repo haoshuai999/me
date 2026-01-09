@@ -4,7 +4,7 @@ export default function SimpleCard(props) {
     return (
         <Card id={props.id}>
         <Card.Header>{props.date}</Card.Header>
-        {props.image && <Card.Img variant="top" src={'/images/' + props.image} alt="card-image"/>}
+        {props.image && <Card.Img variant="top" src={'./images/' + props.image} alt="card-image"/>}
         <Card.Body>
             <Card.Title>{props.title}</Card.Title>
             <Card.Text>

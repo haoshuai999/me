@@ -19,7 +19,7 @@ const Heatmap = ({ width }) => {
 
     // Separate useEffect for data loading (runs once)
     useEffect(() => {
-        d3.csv('/data/heatmap.csv').then(function(d) {
+        d3.csv('./data/heatmap.csv').then(function(d) {
             d.forEach((row, index) => {
                 d[index] = {
                     Timezone: parseInt(row.Timezone),

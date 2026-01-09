@@ -9,7 +9,7 @@ export default function Intro({width, handleClick}) {
         return (
             <Row>
                 <Col md={4} sm={12} className="p-4 my-auto">
-                <Image src={'/images/Profile.jpeg'} alt="profile" fluid />
+                <Image src={'./images/Profile.jpeg'} alt="profile" fluid />
                 </Col>
                 <Col md={8} sm={12} className="p-5 my-auto">
                 <h1>Hello, world! I'm Shuai Hao.</h1>

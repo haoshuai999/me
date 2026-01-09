@@ -17,7 +17,7 @@ const Congress = ({ width }) => {
 
     // Separate useEffect for data loading (runs once)
     useEffect(() => {
-        d3.csv('/data/congress.csv').then(function(d) {
+        d3.csv('./data/congress.csv').then(function(d) {
             setData(d);
         }).catch(function(err) {
             throw err;

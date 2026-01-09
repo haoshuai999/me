@@ -3,6 +3,7 @@ import dsv from '@rollup/plugin-dsv';
 import react from '@vitejs/plugin-react';
 
 export default defineConfig({
+  base: '/me/',
   plugins: [react(), dsv()],
   build: {
     outDir: 'build',
