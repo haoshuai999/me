@@ -2,7 +2,6 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Button from 'react-bootstrap/Button';
 import Image from 'react-bootstrap/Image';
-import Profile from "../../images/Profile.jpeg";
 
 
 export default function Intro({width, handleClick}) {
@@ -10,7 +9,7 @@ export default function Intro({width, handleClick}) {
         return (
             <Row>
                 <Col md={4} sm={12} className="p-4 my-auto">
-                <Image src={Profile} alt="profile" fluid />
+                <Image src={'./images/Profile.jpeg'} alt="profile" fluid />
                 </Col>
                 <Col md={8} sm={12} className="p-5 my-auto">
                 <h1>Hello, world! I'm Shuai Hao.</h1>
@@ -24,7 +23,7 @@ export default function Intro({width, handleClick}) {
         return (
             <Row className="full-height">
                 <Col md={4} sm={12} className="p-4 my-auto">
-                <Image src={Profile} alt="profile" fluid />
+                <Image src={'./images/Profile.jpeg'} alt="profile" fluid />
                 </Col>
                 <Col md={8} sm={12} className="p-5 my-auto">
                 <h1>Hello, world! I'm Shuai Hao.</h1>

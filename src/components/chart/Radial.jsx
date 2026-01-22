@@ -1,6 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
 import * as d3 from "d3";
-import radialData from "../../data/radial.csv";
 
 const Radial = ({ width }) => {
     const svgRef = useRef(null);
@@ -13,7 +12,7 @@ const Radial = ({ width }) => {
 
     // Separate useEffect for data loading (runs once)
     useEffect(() => {
-        d3.csv(radialData).then(function(d) {
+        d3.csv('./data/radial.csv').then(function(d) {
             d.forEach((row) => {
                 let total = 0;
                 for (let i = 1; i < d.columns.length; ++i) total += row[d.columns[i]] = +row[d.columns[i]];

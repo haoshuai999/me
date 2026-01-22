@@ -1,6 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
 import * as d3 from "d3";
-import congressData from "../../data/congress.csv";
 
 const Congress = ({ width }) => {
     const svgRef = useRef(null);
@@ -18,7 +17,7 @@ const Congress = ({ width }) => {
 
     // Separate useEffect for data loading (runs once)
     useEffect(() => {
-        d3.csv(congressData).then(function(d) {
+        d3.csv('./data/congress.csv').then(function(d) {
             setData(d);
         }).catch(function(err) {
             throw err;

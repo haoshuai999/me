@@ -1,8 +1,7 @@
 import React, { useState, useEffect, useRef, useMemo } from "react";
 import * as d3 from "d3";
-import cosmosCSVData from "../../data/cosmos.csv";
-import bitcoinRawData from "../../data/cosmos_bitcoin.json";
-import cosmosRawData from "../../data/cosmos_cosmos.json";
+import bitcoinRawData from "../../json/cosmos_bitcoin.json";
+import cosmosRawData from "../../json/cosmos_cosmos.json";
 
 const Cosmos = ({ width }) => {
     const svgRef = useRef(null);
@@ -52,7 +51,7 @@ const Cosmos = ({ width }) => {
     
     // Separate useEffect for data loading (runs once)
     useEffect(() => {
-        d3.csv(cosmosCSVData).then(function(d) {
+        d3.csv('./data/cosmos.csv').then(function(d) {
             setData(d);
         }).catch(function(err) {
             throw err;
