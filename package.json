@@ -4,14 +4,12 @@
   "version": "3.1.1",
   "private": true,
   "dependencies": {
-    "@observablehq/runtime": "^5.9.9",
-    "543fc9bac1bd4e19": "https://api.observablehq.com/d/543fc9bac1bd4e19.tgz?v=3",
     "bootstrap": "^5.3.8",
     "d3": "^7.8.5",
-    "fb5ed6161a8a33b8": "https://api.observablehq.com/d/fb5ed6161a8a33b8@613.tgz?v=3",
     "react": "^18.0.0",
     "react-bootstrap": "^2.10.10",
     "react-dom": "^18.0.0",
+    "topojson-client": "^3.1.0",
     "web-vitals": "^5.1.0"
   },
   "scripts": {
