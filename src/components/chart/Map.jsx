@@ -28,27 +28,25 @@ function Chinamap({ width }) {
     Promise.all([
       d3.csv("./data/china_population.csv", d3.autoType),
       d3.json("./data/china_provinces.geojson"),
-    ]).then(([rows, china]) => {
-      const byName = new Map(
-        rows.map((d) => [
-          d.Delegation,
+    ]).then(([chinaPop, chinaProvinces]) => {
+      const populationByProvince = new Map(
+        chinaPop.map((provincePop) => [
+          provincePop.Delegation,
           {
-            population: YEAR_LIST.map((y) => d[y]),
-            deputies: [d.Women, d.Men],
+            population: YEAR_LIST.map((year) => provincePop[year]),
+            deputies: [provincePop.Women, provincePop.Men],
           },
         ]),
       );
-      setData({ china, byName });
+      setData({ pop: populationByProvince, provinces: chinaProvinces });
     });
   }, []);
 
-  // Taiwan is absent from the data; it is drawn black with no bars
-  const province =
-    selected ?? (metric === "Population" ? "Guangdong" : "Guangxi");
+  const province = selected ?? "Guangdong";
 
   const scales = useMemo(() => {
     if (!data || !w) return null;
-    const rows = [...data.byName.values()];
+    const rows = [...data.pop.values()];
     const left = w > 500 ? w / 2 + MARGIN.left : MARGIN.left;
     const top = w > 500 ? MARGIN.top : MARGIN.top + height * 0.6;
     const range = [height - MARGIN.bottom, top];
@@ -94,13 +92,13 @@ function Chinamap({ width }) {
     svg
       .append("g")
       .selectAll("path")
-      .data(data.china.features)
+      .data(data.provinces.features)
       .join("path")
       .attr("class", "province")
       .attr("d", path)
       .attr("stroke", "white")
       .attr("fill", (d) => {
-        const row = data.byName.get(d.properties.name);
+        const row = data.pop.get(d.properties.name);
         return row ? color(row.population[index]) : "#000000";
       });
 
@@ -115,24 +113,27 @@ function Chinamap({ width }) {
     const tooltip = svg.append("g");
 
     svg.selectAll(".province").on("click", function (event, d) {
-      const name = d.properties.name;
-      const row = data.byName.get(name);
+      const provinceName = d.properties.name;
+      const row = data.pop.get(provinceName);
       const current = row?.population[index];
       const previous = row?.population[index - 1];
       const [women, men] = row?.deputies ?? ["N/A", "N/A"];
 
-      setSelected(name);
+      setSelected(provinceName);
       tooltip.call(
         callout,
-        `${name}
+        `${provinceName}
 Male NPC deputies: ${men}
 Female NPC deputies: ${women}
 ${year} Population: ${row ? format(current) : "N/A"}
 Population growth from last year: ${row && year > 2011 ? formatPercent((current - previous) / previous) : "N/A"}`,
       );
-      const [px, py] = d3.pointer(event, svg.node());
+      const [mouseX, mouseY] = d3.pointer(event, svg.node());
       tooltip
-        .attr("transform", `translate(${py > 350 ? [px, py - 50] : [px, py]})`)
+        .attr(
+          "transform",
+          `translate(${mouseY > 350 ? [mouseX, mouseY - 50] : [mouseY, mouseY]})`,
+        )
         .raise();
     });
   }, [data, w, height, year]);
@@ -143,7 +144,7 @@ Population growth from last year: ${row && year > 2011 ? formatPercent((current 
     const svg = d3.select(svgRef.current);
     const { x, x2, y, y2, left } = scales;
     const isPopulation = metric === "Population";
-    const row = data.byName.get(province);
+    const row = data.pop.get(province);
 
     svg
       .selectAll(".province")
@@ -154,9 +155,9 @@ Population growth from last year: ${row && year > 2011 ? formatPercent((current 
     const bars = svg.select(".bars");
     bars.selectAll("*").remove();
 
-    const [xs, ys, values, labels] = isPopulation
-      ? [x, y, row?.population ?? [], YEAR_LIST]
-      : [x2, y2, row?.deputies ?? [], GENDERS];
+    const [xScale, yScale, values, labels] = isPopulation
+      ? [x, y, row.population, YEAR_LIST]
+      : [x2, y2, row.deputies, GENDERS];
 
     bars
       .append("g")
@@ -165,27 +166,28 @@ Population growth from last year: ${row && year > 2011 ? formatPercent((current 
       .join("rect")
       .attr(
         "x",
-        (d, i) => xs(labels[i]) + (isPopulation ? 0 : xs.bandwidth() / 4),
+        (d, i) =>
+          xScale(labels[i]) + (isPopulation ? 0 : xScale.bandwidth() / 4),
       )
-      .attr("width", isPopulation ? xs.bandwidth() : xs.bandwidth() / 2)
+      .attr("width", isPopulation ? xScale.bandwidth() : xScale.bandwidth() / 2)
       .attr("fill", isPopulation ? "red" : "blue")
       .attr("y", height - MARGIN.top)
       .attr("height", 0)
       .transition()
       .duration(200)
       .ease(d3.easeLinear)
-      .attr("y", (d) => ys(d))
-      .attr("height", (d) => ys(0) - ys(d));
+      .attr("y", (d) => yScale(d))
+      .attr("height", (d) => yScale(0) - yScale(d));
 
     bars
       .append("g")
       .attr("transform", `translate(0,${height - MARGIN.bottom})`)
-      .call(d3.axisBottom(xs).tickSizeOuter(0));
+      .call(d3.axisBottom(xScale).tickSizeOuter(0));
 
     bars
       .append("g")
       .attr("transform", `translate(${left},0)`)
-      .call(d3.axisLeft(ys).ticks(null, formatAxis))
+      .call(d3.axisLeft(yScale).ticks(null, formatAxis))
       .call((g) => g.select(".domain").remove())
       .call((g) =>
         g
@@ -232,6 +234,7 @@ Population growth from last year: ${row && year > 2011 ? formatPercent((current 
           {METRICS.map((name) => (
             <Form.Check
               inline
+              className="chart-radio"
               key={name}
               type="radio"
               id={`china-map-metric-${name}`}

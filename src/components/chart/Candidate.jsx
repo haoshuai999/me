@@ -10,9 +10,10 @@ const PROFILES = {
   Role: { file: "candidate_leader.csv", padding: 0.5 },
 };
 
-const YEARS = d3.range(1990, 2020).map(String);
-const MARGIN = { top: 30, right: 10, bottom: 20, left: 40 };
+const YEARS = d3.range(1997, 2020).map(String);
+const MARGIN = { top: 80, right: 10, bottom: 20, left: 40 };
 const OUTLINE = { type: "Sphere" };
+const LEGEND_OFFSET = 66;
 
 const barColor = d3
   .scaleOrdinal(["Female", "Male"], ["#f98cae", "#8CF9D7"])
@@ -125,9 +126,7 @@ function Scrubber({ values, index, onChange, delay = 500 }) {
 
 function Candidate({ width }) {
   const barRef = useRef(null);
-  const barLegendRef = useRef(null);
   const mapRef = useRef(null);
-  const mapLegendRef = useRef(null);
 
   const [data, setData] = useState(null);
   const [profile, setProfile] = useState("Age");
@@ -173,7 +172,7 @@ function Candidate({ width }) {
     });
   }, []);
 
-  const byCountry = useMemo(
+  const seatsByCountry = useMemo(
     () =>
       data &&
       new Map(
@@ -188,19 +187,6 @@ function Candidate({ width }) {
     () => data && feature(data.world, data.world.objects.countries),
     [data],
   );
-
-  useEffect(() => {
-    barLegendRef.current.replaceChildren(
-      legend(barColor, { title: "Gender of Candidates" }),
-    );
-  }, []);
-
-  useEffect(() => {
-    if (!data) return;
-    mapLegendRef.current.replaceChildren(
-      legend(mapColor, { title: data.seats[0]["Indicator Name"] }),
-    );
-  }, [data]);
 
   // Stacked bar chart
   useEffect(() => {
@@ -226,6 +212,16 @@ function Candidate({ width }) {
 
     const svg = d3.select(barRef.current).attr("viewBox", [0, 0, w, height]);
     svg.selectAll("*").remove();
+
+    svg
+      .append("g")
+      .attr("transform", `translate(0, 8)`)
+      .append(() =>
+        legend(barColor, {
+          title: "Gender of Candidates",
+          width: Math.min(320, Math.max(0, w - MARGIN.left - MARGIN.right)),
+        }),
+      );
 
     svg
       .append("g")
@@ -264,7 +260,7 @@ function Candidate({ width }) {
         g
           .append("text")
           .attr("x", -MARGIN.left)
-          .attr("y", 10)
+          .attr("y", MARGIN.top - 12)
           .attr("fill", "currentColor")
           .attr("text-anchor", "start")
           .text("Number of Candidates"),
@@ -303,14 +299,14 @@ function Candidate({ width }) {
     svg
       .selectAll(".bar")
       .on("touchmove mousemove", function (event, d) {
-        const [px, py] = d3.pointer(event, svg.node());
+        const [mouseX, mouseY] = d3.pointer(event, svg.node());
         tooltip.call(
           callout,
           `${profile}: ${d.data[profile]}\nGender: ${d.key}\nNumber of Candidates: ${d.data[d.key].toLocaleString("en")}`,
         );
         tooltip.attr(
           "transform",
-          `translate(${py > 350 ? [px, py - 50] : [px, py]})`,
+          `translate(${mouseY > 350 ? [mouseX, mouseY - 50] : [mouseX, mouseY]})`,
         );
         d3.select(this).attr("stroke", "red").raise();
       })
@@ -329,11 +325,12 @@ function Candidate({ width }) {
     const svg = d3
       .select(mapRef.current)
       .style("display", "block")
-      .attr("viewBox", [0, 0, w, height]);
+      .attr("viewBox", [0, 0, w, height + LEGEND_OFFSET]);
     svg.selectAll("*").remove();
 
     const g = svg.append("g");
     g.append("g")
+      .attr("transform", `translate(0, ${LEGEND_OFFSET})`)
       .selectAll("path")
       .data(countries.features)
       .join("path")
@@ -348,7 +345,7 @@ function Candidate({ width }) {
     svg
       .selectAll(".country")
       .on("touchmove mousemove", function (event, d) {
-        const value = byCountry.get(d.properties.name)?.[yearRef.current];
+        const value = seatsByCountry.get(d.properties.name)?.[yearRef.current];
         tooltip.call(
           callout,
           `${d.properties.name}\n  ${yearRef.current}: ${value == null ? "N/A" : `${value}%`}`,
@@ -372,7 +369,17 @@ function Candidate({ width }) {
           g.selectAll("path").attr("transform", event.transform),
         ),
     );
-  }, [data, countries, byCountry, w, layout]);
+
+    svg
+      .append("g")
+      .attr("transform", `translate(4, 0)`)
+      .append(() =>
+        legend(mapColor, {
+          title: data.seats[0]["Indicator Name"],
+          width: Math.min(320, Math.max(0, w - 20)),
+        }),
+      );
+  }, [data, countries, seatsByCountry, w, layout]);
 
   // World map: fill for the selected year
   useEffect(() => {
@@ -380,10 +387,10 @@ function Candidate({ width }) {
     d3.select(mapRef.current)
       .selectAll(".country")
       .attr("fill", (d) => {
-        const value = byCountry.get(d.properties.name)?.[year];
+        const value = seatsByCountry.get(d.properties.name)?.[year];
         return value == null ? "#ccc" : mapColor(value);
       });
-  }, [data, byCountry, year, w, layout]);
+  }, [data, seatsByCountry, year, w, layout]);
 
   return (
     <div>
@@ -392,6 +399,7 @@ function Candidate({ width }) {
         {Object.keys(PROFILES).map((name) => (
           <Form.Check
             inline
+            className="chart-radio"
             key={name}
             type="radio"
             id={`candidate-profile-${name}`}
@@ -402,7 +410,6 @@ function Candidate({ width }) {
           />
         ))}
       </div>
-      <div ref={barLegendRef} />
       <svg ref={barRef} style={{ width: "100%", display: "block" }} />
 
       <h5 className="mt-4">
@@ -410,7 +417,6 @@ function Candidate({ width }) {
         (1990-2019)
       </h5>
       <Scrubber values={YEARS} index={yearIndex} onChange={setYearIndex} />
-      <div ref={mapLegendRef} />
       <svg ref={mapRef} style={{ width: "100%" }} />
     </div>
   );
