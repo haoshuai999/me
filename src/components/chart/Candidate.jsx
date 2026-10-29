@@ -260,7 +260,7 @@ function Candidate({ width }) {
         g
           .append("text")
           .attr("x", -MARGIN.left)
-          .attr("y", MARGIN.top - 12)
+          .attr("y", MARGIN.top - 22)
           .attr("fill", "currentColor")
           .attr("text-anchor", "start")
           .text("Number of Candidates"),
@@ -286,7 +286,7 @@ function Candidate({ width }) {
             .attr("y", MARGIN.top - 5)
             .attr("dy", `${i}em`)
             .attr("text-anchor", anchor)
-            .attr("font-size", 12)
+            .attr("font-size", 10)
             .text(text);
         });
       };
