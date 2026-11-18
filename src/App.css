@@ -1,3 +1,8 @@
+#root,
+html {
+  background-color: rgb(251, 214, 120);
+}
+
 #myCanvas {
   position: absolute;
   z-index: 0;
@@ -30,7 +35,22 @@
 
 .nav-color,
 .footer-color {
-  background-color: rgba(33, 37, 41, 0.03);
+  background-color: rgb(204, 238, 252);
+}
+
+.nav-color .navbar-nav .nav-link {
+  color: black;
+  -webkit-text-stroke: 3px white;
+  paint-order: stroke fill;
+}
+
+.nav-color .navbar-brand:hover,
+.nav-color .navbar-nav .nav-link:hover {
+  -webkit-text-stroke: 5px white;
+}
+
+.nav-color .navbar-brand {
+  font-weight: bold;
 }
 
 .sticky {
@@ -38,6 +58,26 @@
   position: sticky;
   top: 0;
   z-index: 100;
+}
+
+.sticky.nav-tabs {
+  gap: 0.25rem;
+  background-color: rgb(251, 214, 120);
+  border: none;
+}
+
+.sticky.nav-tabs .nav-link {
+  background-color: rgb(204, 238, 252);
+  border-radius: var(--bs-border-radius);
+  border-width: 2px;
+  border-color: white;
+  color: black;
+}
+
+.sticky.nav-tabs .nav-link.active {
+  background-color: rgb(251, 214, 120);
+  border-width: 2px;
+  border-color: white;
 }
 
 .card-img-top {
